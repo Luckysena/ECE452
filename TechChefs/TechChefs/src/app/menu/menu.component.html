@@ -1,0 +1,18 @@
+<div class="txt flex-container">
+  <nav class="nav">
+    <ul>
+      <li><a href="#">Breakfast</a></li>
+      <li><a href="#">Lunch</a></li>
+      <li><a href="#">Dinner</a></li>
+      <li><a href="#">Desserts</a></li>
+      <li><a href="#">Wines</a></li>
+      <li><a [routerLink]="['/menu', {outlets: {'cocktails': ['cocktails']}}]">Cocktails & Beer</a></li>
+      <li><a href="#">Non-Alcoholic Beverages</a></li>
+      <li><a href="#">Kids</a></li>
+      <li><a href="#">Specials</a></li>
+    </ul>
+  </nav>
+    <article class="article">
+      <router-outlet name="cocktails"></router-outlet>
+    </article>  
+</div>

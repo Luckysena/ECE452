@@ -1,0 +1,54 @@
+p.solid{
+  border-style: solid;
+  background-color: forestgreen;
+  border-color: forestgreen;
+  color: white;
+  height: 75px;
+  font-size: 40px;
+}
+
+@media only screen and (max-width: 500px) {
+  .responsive {
+    width: 100%;
+  }
+}
+
+.responsive {
+  padding: 6px;
+  float: left;
+  /*width: 24.99999%;*/
+}
+
+div.gallery {
+  border: 1px solid #ccc;
+  width: 300px;
+  height: 400px;
+}
+
+  div.gallery:hover {
+    border: 1px solid #777;
+  }
+
+  div.gallery img {
+    width: 100%;
+    height: auto;
+  }
+
+div.desc {
+  padding: 15px;
+  text-align: center;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.txt{
+  color: black;
+}

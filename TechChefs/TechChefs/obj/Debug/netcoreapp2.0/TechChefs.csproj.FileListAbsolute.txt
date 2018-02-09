@@ -1,0 +1,11 @@
+C:\Users\zds6tqs\Documents\Visual Studio 2017\Projects\TechChefs\TechChefs\bin\Debug\netcoreapp2.0\TechChefs.deps.json
+C:\Users\zds6tqs\Documents\Visual Studio 2017\Projects\TechChefs\TechChefs\bin\Debug\netcoreapp2.0\TechChefs.runtimeconfig.json
+C:\Users\zds6tqs\Documents\Visual Studio 2017\Projects\TechChefs\TechChefs\bin\Debug\netcoreapp2.0\TechChefs.runtimeconfig.dev.json
+C:\Users\zds6tqs\Documents\Visual Studio 2017\Projects\TechChefs\TechChefs\bin\Debug\netcoreapp2.0\TechChefs.dll
+C:\Users\zds6tqs\Documents\Visual Studio 2017\Projects\TechChefs\TechChefs\bin\Debug\netcoreapp2.0\TechChefs.pdb
+C:\Users\zds6tqs\Documents\Visual Studio 2017\Projects\TechChefs\TechChefs\obj\Debug\netcoreapp2.0\TechChefs.csprojResolveAssemblyReference.cache
+C:\Users\zds6tqs\Documents\Visual Studio 2017\Projects\TechChefs\TechChefs\obj\Debug\netcoreapp2.0\TechChefs.csproj.CoreCompileInputs.cache
+C:\Users\zds6tqs\Documents\Visual Studio 2017\Projects\TechChefs\TechChefs\obj\Debug\netcoreapp2.0\TechChefs.AssemblyInfoInputs.cache
+C:\Users\zds6tqs\Documents\Visual Studio 2017\Projects\TechChefs\TechChefs\obj\Debug\netcoreapp2.0\TechChefs.AssemblyInfo.cs
+C:\Users\zds6tqs\Documents\Visual Studio 2017\Projects\TechChefs\TechChefs\obj\Debug\netcoreapp2.0\TechChefs.dll
+C:\Users\zds6tqs\Documents\Visual Studio 2017\Projects\TechChefs\TechChefs\obj\Debug\netcoreapp2.0\TechChefs.pdb

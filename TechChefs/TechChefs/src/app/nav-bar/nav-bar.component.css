@@ -1,0 +1,10 @@
+.back {
+  background-image: url("http://www.nccusa.com/wp-content/uploads/2017/06/restaurant-technology.jpg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  height: 250px;
+}
+
+.light{
+  color: white;
+}
