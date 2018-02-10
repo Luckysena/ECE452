@@ -47,6 +47,11 @@ import { HomeComponent } from './home/home.component';
 import { MenuComponent } from './menu/menu.component';
 import { CocktailsComponent } from './cocktails/cocktails.component';
 import { LoginComponent } from './login/login.component';
+import { UserChoiceComponent } from './user-choice/user-choice.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { CreateScheduleComponent } from './create-schedule/create-schedule.component';
+import { ViewScheduleComponent } from './view-schedule/view-schedule.component';
+import { SchedulingComponent } from './scheduling/scheduling.component';
 
 
 @NgModule({
@@ -56,7 +61,12 @@ import { LoginComponent } from './login/login.component';
     HomeComponent,
     MenuComponent,
     CocktailsComponent,
-    LoginComponent
+    LoginComponent,
+    UserChoiceComponent,
+    DashboardComponent,
+    CreateScheduleComponent,
+    ViewScheduleComponent,
+    SchedulingComponent
   ],
   imports: [
     BrowserModule,

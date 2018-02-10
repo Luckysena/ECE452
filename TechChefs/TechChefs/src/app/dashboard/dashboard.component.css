@@ -1,0 +1,29 @@
+.left{
+  padding-left: 200px;
+  padding-top: 50px;
+  padding-right: 40px;
+  padding-bottom: 100px;
+}
+mat-grid-tile{
+  background: lightblue;
+}
+.background {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+  height: auto;
+  background-size: auto;
+  -moz-box-shadow: 1px 2px 3px rgba(0,0,0,.5);
+  -webkit-box-shadow: 1px 2px 3px rgba(0,0,0,.5);
+  box-shadow: 1px 2px 3px rgba(0,0,0,.5);
+}
+.contain {
+  object-fit: contain;
+}
+.back{
+  background-image: url("../../assets/images/Light-Wood-Background-Wallpaper.jpg")
+}
+img {
+  border-radius: 8px;
+}

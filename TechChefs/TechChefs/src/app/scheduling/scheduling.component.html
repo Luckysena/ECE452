@@ -1,0 +1,49 @@
+<mat-tab-group class="left">
+  <mat-tab label="Create Schedule">
+    <form>
+      <p></p>
+      <mat-input-container>
+        <input matInput type =date placeholder="Choose a date" />
+      </mat-input-container>
+      <p></p>
+      <mat-form-field>
+        <mat-select placeholder="Employee">
+          <mat-option *ngFor="let employee of employees" [value]="employee.value">
+            {{employee.viewValue}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <p></p>
+      <mat-form-field>
+        <input matInput type="time" placeholder="Shift Start Time" />
+      </mat-form-field>
+      <p></p>
+      <mat-form-field>
+        <input matInput type="time" placeholder="Shift End Time" />
+      </mat-form-field>
+      <p></p>
+      <button mat-raised-button color="primary">Submit</button>
+    </form>
+  </mat-tab>
+  <mat-tab label="View Schedule">
+    <p></p>
+    <div class="table right">
+      <table class="w3-table-all w3-hoverable">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Employee</th>
+            <th>Shift Start Time</th>
+            <th>Shift End Time</th>
+          </tr>
+        </thead>
+        <tr *ngFor="let sched of schedule">
+          <td>{{sched.date}}</td>
+          <td>{{sched.employee}}</td>
+          <td>{{sched.startTime}}</td>
+          <td>{{sched.endTime}}</td>
+        </tr>
+      </table>
+    </div>
+  </mat-tab>
+</mat-tab-group>

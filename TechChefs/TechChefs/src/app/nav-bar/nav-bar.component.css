@@ -8,3 +8,33 @@
 .light{
   color: white;
 }
+
+.container{
+  position: absolute;
+  top:0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.side {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 160px;
+  background-color: darkblue;
+  color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
+  z-index: 1;
+  height: 100%;
+}
+
+.colors{
+  background-color: darkblue;
+  color: white;
+}
+
+

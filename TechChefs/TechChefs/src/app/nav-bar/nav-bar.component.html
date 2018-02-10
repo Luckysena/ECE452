@@ -1,9 +1,65 @@
-<div class="w3-container back light">
+<!--<div class="w3-container back light">
   <div class="w3-bar">
-    <a routerLink="home" routerLinkActive="active" class="w3-bar-item w3-button w3-mobile">Home</a>
+    <a routerLink="/home" routerLinkActive="active" class="w3-bar-item w3-button w3-mobile">Home</a>
+    <button mat-button [matMenuTriggerFor]="scheduling" >Scheduling</button>
+    <mat-menu #scheduling="matMenu" [overlapTrigger]="false">
+      <button mat-menu-item>Create Schedule</button>
+      <button mat-menu-item> View Schedule</button>
+    </mat-menu>
     <a href="#" class="w3-bar-item w3-button w3-mobile">Order Online</a>
     <a routerLink="menu" routerLinkActive="active" class="w3-bar-item w3-button w3-mobile">Menus</a>
     <a href="#" class="w3-bar-item w3-button w3-mobile">Catering</a>
     <a href="#" class="w3-bar-item w3-button w3-mobile">Location</a>
   </div>
-</div>
+</div>-->
+<!--<mat-sidenav-container class="container">
+  <mat-sidenav mode="side" opened>Tech Chefs</mat-sidenav>
+  <mat-menu #scheduling="matMenu" [overlapTrigger]="false" mode="side">
+    <button mat-menu-item>Create Schedule</button>
+    <button mat-menu-item> View Schedule</button>
+  </mat-menu>
+  <mat-sidenav-content class="main">Main Content</mat-sidenav-content>
+</mat-sidenav-container>-->
+<!--<div class="side">
+  <button mat-button>Home</button>
+  <br/>
+  <button mat-button [matMenuTriggerFor]="scheduling">Scheduling</button>
+  <mat-menu #scheduling="matMenu" [overlapTrigger]="false">
+    <button mat-menu-item>Create Schedule</button>
+    <button mat-menu-item>View Schedule</button>
+  </mat-menu>
+</div>-->
+<!--<button mat-button class="navbar-toggler" (click)="collapse=!collapse" type="button" aria-expanded="false" aria-label="Toggle navigation">
+   Scheduling
+ </button>
+
+ <div class="navbar-collapse" (click)="collapse=true" [hidden]="collapse">
+   <ul class="navbar-nav mr-auto">
+     <li class="nav-item">
+       <a class="nav-link" href="#">Create Schedule <span class="sr-only">(current)</span></a>
+     </li>
+     <li class="nav-item">
+       <a class="nav-link" href="#">View Schedule</a>
+     </li>
+   </ul>
+ </div>
+ <br/>-->
+
+<nav class="navbar navbar-expand-sm navbar-light bg-light side">
+  <button mat-button routerLink="/home/dashboard" routerLinkActive="active">Home</button>
+  <!--<a class="navbar-brand" href="#">Scheduling</a>-->
+  <br/>
+  <button mat-button routerLink="/home/scheduling" routerLinkActive="active">Scheduling</button>
+  <!--<mat-accordion class="light">
+    <mat-expansion-panel class="colors">
+      <mat-expansion-panel-header>
+        <mat-panel-title class="colors">
+          Scheduling
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <button mat-button>Create Schedule</button>
+      <button mat-button>View Schedule</button>
+    </mat-expansion-panel>
+  </mat-accordion>-->
+  <button mat-button>Testing</button>
+</nav>
