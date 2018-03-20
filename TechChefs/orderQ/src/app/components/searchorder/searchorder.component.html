@@ -1,0 +1,51 @@
+<html>
+<style>
+	.column {
+    padding: 10px;
+    height: 100%;
+    border: 2px solid black;
+    border-radius: 5px; 
+	}
+</style>
+<body class="bg-dark">
+	<div class="container">
+	<div class="row">
+	<div class="col-md-8 col-sm-8 col-xs-8">
+	<div class="column bg-danger">
+		<h3>Table {{table}}</h3>
+		<ul class= "list-group">
+			<li class="list-group-item bg-danger"><h4> Server: Billy</h4></li>
+			<li class= "list-group-item bg-danger"><h4>Seat: {{seats[0]}}</h4></li>
+				<ul class= "list-group">
+					<li class="list-group-item bg-danger"> Entree: {{entrees[0]}}</li>
+					<li class="list-group-item bg-danger"> Sides: {{sides[0]}}</li>
+				</ul>
+			<li class="list-group-item bg-danger"><h4>Seat: {{seats[1]}}</h4></li>
+				<ul class= "list-group">
+					<li class="list-group-item bg-danger"> Entree: {{entrees[1]}}</li>
+					<li class="list-group-item bg-danger"> Sides: {{sides[1]}}</li>
+				</ul>
+			<li class="list-group-item bg-danger"><h4>Seat: {{seats[2]}}</h4></li>
+				<ul class= "list-group">
+					<li class="list-group-item bg-danger"> Entree: {{entrees[2]}}</li>
+					<li class="list-group-item bg-danger"> Sides: {{sides[2]}}</li>
+				</ul>
+			<li class="list-group-item bg-danger"><h4>Seat: {{seats[3]}}</h4></li>
+				<ul class= "list-group">
+					<li class="list-group-item bg-danger"> Entree: {{entrees[3]}}</li>
+					<li class="list-group-item bg-danger"> Sides: {{sides[3]}}</li>
+				</ul>
+			<li class="list-group-item bg-danger"><h4>Time: 11:36</h4></li>
+		</ul>
+	</div>
+	</div>
+	<div class="col-md-4 col-sm-4 col-xs-4">
+	<button id = "C1" (click) = "backToQueue()" class ="btn btn-success btn-lg"> Return to Queue</button><br>
+	<button id ="alert"(click)= "alertServer()" class ="btn btn-warning btn-lg">Alert Server</button><br>
+	<button id ="delete"(click)= "deleteOrder()" class ="btn btn-danger btn-lg">Delete an Order</button><br>
+	</div>
+	</div>
+	</div>
+</body>
+</html>
+
