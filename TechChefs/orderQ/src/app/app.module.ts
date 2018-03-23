@@ -70,6 +70,7 @@ import { LoginComponent } from './login/login.component';
     ServerComponent,
     EntreesComponent,
     LoginComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserAnimationsModule,

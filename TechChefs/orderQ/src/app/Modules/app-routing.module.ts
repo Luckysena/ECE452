@@ -11,7 +11,7 @@ import { EntreesComponent } from '../cust-components/entrees/entrees.component';
 import { LoginComponent } from '../login/login.component';
 
 const appRoutes: Routes = [
-    { path: 'login', component: LoginComponent },
+    { path:'login', component: LoginComponent },
     { path:'entree', component: EntreesComponent },
     { path:'server', component:ServerComponent },
     { path:'table/43',component:SearchorderComponent },
