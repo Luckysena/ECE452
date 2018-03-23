@@ -56,8 +56,7 @@ import {
 } from '@angular/material';
 import 'hammerjs';
 import { LoginComponent } from './login/login.component';
-
-
+import { HomeComponent } from './cust-components/home/home.component';
 
 
 @NgModule({
@@ -70,6 +69,7 @@ import { LoginComponent } from './login/login.component';
     ServerComponent,
     EntreesComponent,
     LoginComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserAnimationsModule,
