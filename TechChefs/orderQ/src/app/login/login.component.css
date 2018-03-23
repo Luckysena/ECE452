@@ -1,0 +1,88 @@
+.container {
+    width: 100%;
+    height: 100%;
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url("http://www.nccusa.com/wp-content/uploads/2017/06/restaurant-technology.jpg");
+    
+    display: block;
+  
+  }
+  
+  .content {
+    width: 100%;
+    height: 500px;
+    margin: 0;
+    /* background-image: url("../../assets/images/restaurant-technology.jpg"); */
+    background-size: cover;
+    background-position: center;
+    filter: blur(3px);
+    -webkit-filter: blur(3px);
+    display: block;
+    background-repeat: no-repeat;
+  }
+  
+  .form {
+    position: absolute;
+    top: 200px;
+    left: 400px;
+    width: 500px;
+    height: auto;
+    background-color: #66ffc2;
+    color: black;
+    -webkit-filter: blur(0px);
+    display: block;
+  }
+  
+  .submitbutton {
+    left: 200px;
+    background-color: black;
+    color: white;
+  }
+  html,body{
+    height: 100%;
+  }
+  .bg {
+  
+    min-height: 1000px;
+    opacity: 0.75;
+    /* background-image: url("../../assets/images/restaurant-technology.jpg"); */
+    background-size: cover;
+    background-position: center;
+  
+  
+    background-repeat: no-repeat;
+  }
+  
+  .text-block {
+    position: absolute;
+    top: 40%;
+    left: 35%;
+    background-color: black;
+    color: white;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+  }
+  
+  /*input, textarea {
+    background-color: white;
+  }*/
+  /*mat-form-field{
+    background-color: white;
+    color: black;
+  }*/
+  
+.mat-input-placeholder {
+    color: white;
+    font-size: 2em;
+  }
+  .mat-input-ripple.mat-focused {
+    background-color: white;
+  }
+  .tsize{
+    font-size: medium;
+    color: black;
+  }

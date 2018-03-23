@@ -2,8 +2,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {FormsModule} from '@angular/forms';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+
 
 import { AppComponent } from './app.component';
+import { AppRoutingModule } from './Modules/app-routing.module';
 import { OrdersComponent } from './components/orders/orders.component';
 import { AboutComponent } from './components/about/about.component';
 
@@ -11,14 +14,45 @@ import {DataService} from './services/data.service';
 import { SearchorderComponent } from './components/searchorder/searchorder.component';
 import { InventoryComponent } from './components/inventory/inventory.component';
 import { ServerComponent } from './components/server/server.component';
-const appRoutes: Routes = [
-{path:'', component:OrdersComponent},
-{path:'server', component:ServerComponent},
-{path:'table/43',component:SearchorderComponent},
-{path:'inventory',component:InventoryComponent},
-{path:'queue',component:OrdersComponent},
-{path:'about', component:AboutComponent}  
-];
+import { EntreesComponent } from './cust-components/entrees/entrees.component';
+
+import {
+  MatAutocompleteModule,
+  MatButtonModule,
+  MatButtonToggleModule,
+  MatCardModule,
+  MatCheckboxModule,
+  MatChipsModule,
+  MatDatepickerModule,
+  MatDialogModule,
+  MatExpansionModule,
+  MatGridListModule,
+  MatIconModule,
+  MatInputModule,
+  MatListModule,
+  MatMenuModule,
+  MatNativeDateModule,
+  MatPaginatorModule,
+  MatProgressBarModule,
+  MatProgressSpinnerModule,
+  MatRadioModule,
+  MatRippleModule,
+  MatSelectModule,
+  MatSidenavModule,
+  MatSliderModule,
+  MatSlideToggleModule,
+  MatSnackBarModule,
+  MatSortModule,
+  MatTableModule,
+  MatTabsModule,
+  MatToolbarModule,
+  MatTooltipModule,
+} from '@angular/material';
+import 'hammerjs';
+import { LoginComponent } from './login/login.component';
+
+
+
 
 @NgModule({
   declarations: [
@@ -27,12 +61,46 @@ const appRoutes: Routes = [
     AboutComponent,
     SearchorderComponent,
     InventoryComponent,
-    ServerComponent
+    ServerComponent,
+    EntreesComponent,
+    LoginComponent,
   ],
   imports: [
+    BrowserAnimationsModule,
     BrowserModule,
     FormsModule,
-    RouterModule.forRoot(appRoutes)
+    AppRoutingModule,
+    MatAutocompleteModule,
+    MatButtonModule,
+    MatButtonToggleModule,
+    MatCardModule,
+    MatCheckboxModule,
+    MatChipsModule,
+    MatDatepickerModule,
+    MatDialogModule,
+    MatExpansionModule,
+    MatGridListModule,
+    MatIconModule,
+    MatInputModule,
+    MatListModule,
+    MatMenuModule,
+    MatNativeDateModule,
+    MatPaginatorModule,
+    MatProgressBarModule,
+    MatProgressSpinnerModule,
+    MatRadioModule,
+    MatRippleModule,
+    MatSelectModule,
+    MatSidenavModule,
+    MatSliderModule,
+    MatSlideToggleModule,
+    MatSnackBarModule,
+    MatSortModule,
+    MatTableModule,
+    MatTabsModule,
+    MatToolbarModule,
+    MatTooltipModule,
+
   ],
   providers: [DataService],
   bootstrap: [AppComponent]
