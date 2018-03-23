@@ -16,6 +16,12 @@ import { InventoryComponent } from './components/inventory/inventory.component';
 import { ServerComponent } from './components/server/server.component';
 import { EntreesComponent } from './cust-components/entrees/entrees.component';
 
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { environment } from './../environments/environment';
+
+
 import {
   MatAutocompleteModule,
   MatButtonModule,
@@ -100,6 +106,10 @@ import { LoginComponent } from './login/login.component';
     MatTabsModule,
     MatToolbarModule,
     MatTooltipModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule,
+
 
   ],
   providers: [DataService],
