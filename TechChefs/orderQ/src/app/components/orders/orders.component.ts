@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
+import { AngularFireDatabase } from 'angularfire2/database';
+import { Observable } from 'rxjs/Observable';
 
 
 @Component({
@@ -8,20 +10,27 @@ import {Router} from '@angular/router';
   styleUrls: ['./orders.component.css']
 })
 export class OrdersComponent implements OnInit {
-	table: number;
+	
+	table: number[];
 	seats: number[];
 	entrees: string[];
 	sides: string[];
 	time: string;
-  isSearch: boolean = false;
-  constructor(private router: Router) { }
+	isSearch: boolean = false;
+	ordObservable: Observable<any[]>;
+  constructor(private db: AngularFireDatabase, private router: Router) { 
+		
+	}
 
   ngOnInit() {
-  	this.table = 43;
+	this.ordObservable = this.getOrd('/Orders');
+  	this.table = [43, 25, 34] ;
   	this.seats = [1, 2, 3, 4];
-  	this.entrees = ['Steak', 'Steak', 'Chicken', 'Fish'];
   	this.sides = ['Broccoli', 'Mashed Potatoes', 'Carrots', 'Mac and Cheese'];
   	this.time ='5:00';
+  }
+	getOrd(listPath): Observable<any[]> {
+		return this.db.list(listPath).valueChanges();
   }
 
   clearOrder(){
