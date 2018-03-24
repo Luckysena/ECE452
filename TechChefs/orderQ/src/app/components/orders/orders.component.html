@@ -12,7 +12,7 @@
     padding: 10px;
     height: 90%;
     border: 2px solid black;
-    border-radius: 5px; 
+    border-radius: 5px;
 }
 
 /* Clear floats after the columns */
@@ -35,7 +35,7 @@
 </div>
 <div class = "container">
 <div class="row">
-	<div class="column bg-white" *ngFor="let Orders of ordObservable | async">
+	<div id = "ticket0" class="column" style="background-color:white" *ngFor="let Orders of ordObservable | async">
 		<h3>Table: {{Orders.Table}}</h3>
 		<ul class= "list-unstyled">
 			<li><h4>Seat: {{seats[0]}}</h4></li>
@@ -58,7 +58,7 @@
 					<li> Entree: {{Orders.Entrees}}</li>
 					<li> Sides: {{Orders.Sides}}</li>
 				</ul>
-			<li><h4>Time: 11:26</h4></li>
+			<li><h4>Time: <span id="minutes">00</span>:<span id="seconds">00</span></h4></li>
 		</ul>
 	</div>
 	<!--	<div class="column bg-white">
@@ -115,10 +115,9 @@
 </div>
 </div>
 <div class="container" style="postion:relative; margin-top: 0%;">
-
-	<button id = "C1" (click) = "clearOrder()" class ="btn btn-success"> Clear First Order</button>
-	<button id ="C2"(click)= "clearOrder()" class ="btn btn-success">Clear Second Order</button>
-	<button id ="C3"(click)= "clearOrder()" class ="btn btn-success">Clear Third Order</button>
+	<button id = "C1" (click) = "clearOrder1()" class ="btn btn-success"> Clear First Order</button>
+	<button id ="C2"(click)= "clearOrder2()" class ="btn btn-success">Clear Second Order</button>
+	<button id ="C3"(click)= "clearOrder3()" class ="btn btn-success">Clear Third Order</button>
 	<button id = "orderRdy"(click)="orderRdy()" class ="btn btn-success"> Order Ready</button>
 	<button id = "viewInv"(click)= "viewInv()" class ="btn btn-warning"> View Inventory</button>
 	<button id ="search"(click)= "toggSearch()" class ="btn btn-warning">Search for Order</button>
