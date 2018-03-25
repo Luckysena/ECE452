@@ -1,43 +1,75 @@
-.menu-body {
-    max-width: 680px;
-    margin: 0 auto;
-    display: block;
-    color: rgb(92, 92, 92);
-  }
-  
-  .menu-section {
-    margin-bottom: 80px;
-  }
-  
-  .menu-section-title {
-    font-family: georgia;
-    font-size: 50px;
-    display: block;
-    font-weight:normal;
-    margin: 20px 0; 
-    text-align: Center;
-  }
-  
-  .menu-item {
-    margin: 35px 0;
-    font-size: 18px;
-  }
-  
-  .menu-item-name{
-    font-family: helvetica;
-    font-weight: bold;
-    border-bottom: 2px dotted rgb(213, 213, 213);
-  }
-  
-  .menu-item-description {
-    font-style: italic;
-    font-size: .9em;
-    line-height: 1.5em;
-  }
-  
-  .menu-item-price{
-    float: right;
-    font-weight: bold;
-    font-family: arial;
-    margin-top: -22px;
-  }
+.color_animation {
+  text-decoration: initial;
+  /* word-spacing: 5px; */
+  margin-right: -30px;
+  margin-left: -30px !important;
+  color: white !important;
+  -webkit-transition: color 0.3s ease-out;
+  -moz-transition: color 0.3s ease-in-out;
+  -o-transition: color 0.3s ease-in-out;
+  -ms-transition: color 0.3s ease-in-out;
+  transition: color 0.3s ease-in-out;
+}
+.color_animation:hover{
+  color: #9BE86F !important;
+}
+
+div#bs-example-navbar-collapse-1 {
+  height: 368px;
+  overflow: hidden;
+  text-align: center;
+  text-decoration: none !important;
+}
+.navbar-brand{
+  font-family: 'Pacifico', cursive;
+  font-size: 34px !important;
+  text-decoration: none;
+  color: white !important;
+}
+
+nav {
+  background: #1E1E1E !important;
+  font-size: 18px;
+  color: white !important;
+}
+
+.navbar-header {
+  float: left;
+}
+
+.top-title{
+  color: white;
+  font-family: 'Playball', cursive;
+  font-size: 120px;
+  font-weight: 400;
+}
+
+.second-title {
+  font-weight: lighter; 
+  font-size: 30px; 
+  font-style: italic; 
+  text-transform: capitalize;
+}
+
+.white{
+  color: white;
+}
+
+footer.sub_footer {
+  background-color: #1C1C1C;
+  padding: 20px;
+}
+
+p.sub-footer-text{
+  color: #6B6B6B;
+}
+
+p.sub-footer-text a{
+  color: #BDBDBD;
+  text-decoration: none;
+}
+
+
+.indent{
+  padding-left: 1.8em;
+}

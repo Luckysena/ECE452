@@ -10,11 +10,13 @@ import { ServerComponent } from '../components/server/server.component';
 import { EntreesComponent } from '../cust-components/entrees/entrees.component';
 import { LoginComponent } from '../login/login.component';
 import { HomeComponent } from '../cust-components/home/home.component';
+import { PlaceOrderComponent } from '../cust-components/place-order/place-order.component';
 
 const appRoutes: Routes = [
     { path:'login', component: LoginComponent },
     { path:'entrees', component: EntreesComponent },
     { path:'home', component: HomeComponent },
+    { path:'place-order', component: PlaceOrderComponent },
     { path:'server', component:ServerComponent },
     { path:'table/43',component:SearchorderComponent },
     { path:'inventory',component:InventoryComponent },
