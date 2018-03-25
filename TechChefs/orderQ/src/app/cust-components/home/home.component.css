@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 
 .container {
     padding-right: 15px;
@@ -25,7 +24,7 @@ h1 {
 }
 
 *, *:before, *:after {
-    -moz-box-sizing: border-box;  
+    -moz-box-sizing: border-box;
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
 }
@@ -102,9 +101,9 @@ nav {
  }
 
  .second-title {
-    font-weight: lighter; 
-    font-size: 30px; 
-    font-style: italic; 
+    font-weight: lighter;
+    font-size: 30px;
+    font-style: italic;
     text-transform: capitalize;
 }
 
@@ -121,7 +120,7 @@ nav {
     background: url('../../../assets/images/steak.jpg') no-repeat center center;
     background-size: cover;
     text-align: center;
-    background-position: center;  
+    background-position: center;
 }
 p.desc-text{
   font-size: 20px;
@@ -137,7 +136,7 @@ p.desc-text{
     z-index: 99;
     position: relative;
     background: white;
-    text-align: center; 
+    text-align: center;
 }
 .description_body {
     margin: 45px auto;
@@ -164,7 +163,7 @@ div .fa-2x {
 }
 
 .pricing.background_content{
-    background: url('../../../assets/images/pricing.jpg') no-repeat center center; 
+    background: url('../../../assets/images/pricing.jpg') no-repeat center center;
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -237,20 +236,20 @@ div .fa-2x {
 
 
 .beer.background_content{
-    background: url('../../../assets/images/beer.jpg') no-repeat center center; 
+    background: url('../../../assets/images/beer.jpg') no-repeat center center;
     background-size: cover;
     background-position: 70% 50%;
     min-height: 500px;
 }
 .bread.background_content{
-    background: url('../../../assets/images/bread.jpg') no-repeat center center; 
+    background: url('../../../assets/images/bread.jpg') no-repeat center center;
     background-size: cover;
     background-position: 70% 50%;
     min-height: 500px;
 }
 
 .featured.background_content{
-    background: url('../../../assets/images/featured.jpg') no-repeat center center; 
+    background: url('../../../assets/images/featured.jpg') no-repeat center center;
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -1187,7 +1186,7 @@ p.sub-footer-text a{
     height: 200px;
     max-height: 200px;
     max-width: 100%;
-} 
+}
 /* Generic Button Styles */
 .button{
     padding:8px 12px;
@@ -1259,9 +1258,9 @@ h1 {
     border: 0 !important;
 }
 
-  
-  
-  
+
+
+
 =======
   right: 0;
   background-image: url("../../../assets/images/restaurantbkg.jpg");
@@ -1285,4 +1284,3 @@ h1 {
   text-align: center;
   padding-top: 350px;
 }
->>>>>>> eb403d9306c43f3beee860685d8fb9679eb194bf
