@@ -1,0 +1,27 @@
+.sidenav-container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-image: url("../../../assets/images/restaurantbkg.jpg");
+}
+
+.mat-sidenav {
+  background-image: url("../../../assets/images/woodbackground.jpg");
+}
+
+.mat-button {
+  color: white;
+  opacity: 10;
+  width: 120px;
+}
+
+.center {
+  background-image: url("../../../assets/images/woodbackground.jpg");
+}
+
+.mat-sidenav-content {
+  text-align: center;
+  padding-top: 350px;
+}
