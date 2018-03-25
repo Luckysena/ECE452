@@ -20,7 +20,7 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { environment } from './../environments/environment';
-
+import { CookieService } from 'ngx-cookie-service';
 
 import {
   MatAutocompleteModule,
@@ -114,7 +114,7 @@ import { PlaceOrderComponent } from './cust-components/place-order/place-order.c
 
 
   ],
-  providers: [DataService],
+  providers: [DataService, CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

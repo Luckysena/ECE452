@@ -19,7 +19,7 @@
                 <a class="color_animation" style="padding-left: 15em" routerLink="/home" routerLinkActive="active">WELCOME</a> &emsp;&emsp;&emsp;
                 <a class="color_animation indent" href="#story">ABOUT</a>&emsp;&emsp;&emsp;
 
-                <a class="color_animation indent" routerLink="/entree" routerLinkActive="active">MENU&ORDER</a>&emsp;&emsp;&emsp;
+                <a class="color_animation indent" routerLink="/entrees" routerLinkActive="active">MENU&ORDER</a>&emsp;&emsp;&emsp;
 
                 <a class="color_animation indent" href="#reservation">RESERVATION</a>&emsp;&emsp;&emsp;
 
@@ -366,19 +366,3 @@
     </div>
 </footer>
 </body>
-=======
-<mat-sidenav-container class="sidenav-container">
-  <mat-sidenav #sidenav mode="over" [(opened)]="opened">
-    <div><button mat-button routerLink="/entrees">ENTREES</button></div>
-    <div><button mat-button routerLink="/entrees">APPETIZERS</button></div>
-    <div><button mat-button routerLink="/entrees">DESSERTS</button></div>
-    <div><button mat-button routerLink="/entrees">DRINKS</button></div>
-  </mat-sidenav>
-  <mat-sidenav-content>
-    <div>
-      <button mat-button (click)="sidenav.toggle()" class="center">MENU</button>
-      <button mat-button (click)="sidenav.toggle()" class="center">CART</button>
-      <button mat-button (click)="sidenav.toggle()" class="center">CONTACT</button>
-    </div>
-  </mat-sidenav-content>
-</mat-sidenav-container>
