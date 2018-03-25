@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { ngCookies } from angular-cookies 
 import { EntreesComponent } from './entrees.component';
 
 describe('EntreesComponent', () => {
