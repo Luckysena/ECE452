@@ -8,7 +8,6 @@ import { CookieService } from 'ngx-cookie-service';
 })
 export class EntreesComponent implements OnInit {
 
-  cookieValue = 'UNKNOWN';
   add(key: string): void {
     var num;
     if(this.cookieService.check(key) == true) {
@@ -36,10 +35,5 @@ export class EntreesComponent implements OnInit {
   constructor( private cookieService: CookieService ) { }
   ngOnInit(): void {
     this.cookieService.deleteAll();
-    this.add('Test');
-    this.add('Test');
-    this.add('Chicken');
-    this.remove('Chicken');
-    console.log(this.cookieService.getAll());
   }
 }

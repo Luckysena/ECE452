@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-place-order',
@@ -6,10 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./place-order.component.css']
 })
 export class PlaceOrderComponent implements OnInit {
+  cart[] = [];
 
-  constructor() { }
+  constructor( private cookieService: CookieService ) {}
 
-  ngOnInit() {
+  ngOnInit(): void{
+    cart = this.cookieService.getAll();
   }
 
 }
