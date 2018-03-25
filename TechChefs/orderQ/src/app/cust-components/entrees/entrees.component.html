@@ -28,9 +28,14 @@
         </div>
     </div>
 </nav>
-Chicken
-<button mat-button (click) = "add('Chicken')">Add to Cart</button>
-<button mat-button (click) = "remove('Chicken')">Remove from Cart</button>
+
+<div *ngFor="let item of menuObservable | async">
+	{{item.Name}}
+	Price: {{item.Price}}
+	<button mat-button (click) = "add(item.Name)">Add to Cart</button>
+	<button mat-button (click) = "remove(item.Name)">Remove from Cart</button>
+</div>
+
 <footer class="sub_footer">
 		<div class="container">
 			<div class="col-md-4">

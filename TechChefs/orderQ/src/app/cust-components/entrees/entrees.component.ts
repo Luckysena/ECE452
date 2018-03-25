@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
+import { AngularFireDatabase } from 'angularfire2/database';
 
 @Component({
   selector: 'app-entrees',
@@ -31,9 +32,14 @@ export class EntreesComponent implements OnInit {
     }
     this.cookieService.set(key, String(num));
   }
+  menuObservable: Observable<any[]>;
 
-  constructor( private cookieService: CookieService ) { }
+
+  getInv(listPath): Observable<any[]> {
+    return this.db.list(listPath).valueChanges();
+  }
+  constructor( private cookieService: CookieService, private db: AngularFireDatabase) { }
   ngOnInit(): void {
-    this.cookieService.deleteAll();
+    this.menuObservable = this.getInv('/menu');
   }
 }

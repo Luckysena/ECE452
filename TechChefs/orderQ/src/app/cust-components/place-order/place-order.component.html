@@ -1,2 +1,3 @@
-
-{{cart}}
+<li *ngFor="let item of cart">
+  {{item}} {{getQuantity(item)}}
+</li>
