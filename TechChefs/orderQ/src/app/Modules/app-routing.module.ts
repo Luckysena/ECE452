@@ -14,7 +14,7 @@ import { PlaceOrderComponent } from '../cust-components/place-order/place-order.
 
 const appRoutes: Routes = [
     { path:'login', component: LoginComponent },
-    { path:'entree', component: EntreesComponent },
+    { path:'entrees', component: EntreesComponent },
     { path:'home', component: HomeComponent },
     { path:'place-order', component: PlaceOrderComponent },
     { path:'server', component:ServerComponent },
