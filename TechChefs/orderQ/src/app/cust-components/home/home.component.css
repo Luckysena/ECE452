@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 .container {
     padding-right: 15px;
@@ -318,10 +319,14 @@ div .fa-2x {
   left: 100%;
 }
 .carousel-control {
+=======
+.sidenav-container {
+>>>>>>> eb403d9306c43f3beee860685d8fb9679eb194bf
   position: absolute;
   top: 0;
   bottom: 0;
   left: 0;
+<<<<<<< HEAD
   width: 15%;
   font-size: 20px;
   color: #fff;
@@ -1257,3 +1262,27 @@ h1 {
   
   
   
+=======
+  right: 0;
+  background-image: url("../../../assets/images/restaurantbkg.jpg");
+}
+
+.mat-sidenav {
+  background-image: url("../../../assets/images/woodbackground.jpg");
+}
+
+.mat-button {
+  color: white;
+  opacity: 10;
+  width: 120px;
+}
+
+.center {
+  background-image: url("../../../assets/images/woodbackground.jpg");
+}
+
+.mat-sidenav-content {
+  text-align: center;
+  padding-top: 350px;
+}
+>>>>>>> eb403d9306c43f3beee860685d8fb9679eb194bf

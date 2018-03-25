@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -366,3 +367,20 @@
     </div>
 </footer>
 </body>
+=======
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #sidenav mode="over" [(opened)]="opened">
+    <div><button mat-button routerLink="/entrees">ENTREES</button></div>
+    <div><button mat-button routerLink="/entrees">APPETIZERS</button></div>
+    <div><button mat-button routerLink="/entrees">DESSERTS</button></div>
+    <div><button mat-button routerLink="/entrees">DRINKS</button></div>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div>
+      <button mat-button (click)="sidenav.toggle()" class="center">MENU</button>
+      <button mat-button (click)="sidenav.toggle()" class="center">CART</button>
+      <button mat-button (click)="sidenav.toggle()" class="center">CONTACT</button>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+>>>>>>> eb403d9306c43f3beee860685d8fb9679eb194bf
