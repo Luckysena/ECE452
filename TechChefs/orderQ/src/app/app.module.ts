@@ -57,6 +57,7 @@ import {
 import 'hammerjs';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './cust-components/home/home.component';
+import { PlaceOrderComponent } from './cust-components/place-order/place-order.component';
 
 
 @NgModule({
@@ -70,6 +71,7 @@ import { HomeComponent } from './cust-components/home/home.component';
     EntreesComponent,
     LoginComponent,
     HomeComponent,
+    PlaceOrderComponent,
   ],
   imports: [
     BrowserAnimationsModule,
