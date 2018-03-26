@@ -35,12 +35,12 @@
 </div>
 <div class = "container">
 <div class="row">
-	<div id = "ticket0" class="column" style="background-color:white" *ngFor="let Orders of ordObservable | async">
+	<div id = "ticket0" src onerror = 'initTime()' class="column" style="background-color:white" *ngFor="let Orders of ordObservable | async">
 		<h3>Table: {{Orders.Table}}</h3>
 		<ul class= "list-unstyled">
 			<li><h4>Seat: {{seats[0]}}</h4></li>
 				<ul class= "list-unstyled">
-					<li> Entree: {{Orders.Entrees}}</li>
+					<li> Entree: {{Orders.Item1.Name}}   Amount: {{Orders.Item1.Quantity}}</li>
 					<li> Sides: {{Orders.Sides}}</li>
 				</ul>
 			<li><h4>Seat: {{seats[1]}}</h4></li>
@@ -58,61 +58,10 @@
 					<li> Entree: {{Orders.Entrees}}</li>
 					<li> Sides: {{Orders.Sides}}</li>
 				</ul>
-			<li><h4>Time: <span id="minutes">00</span>:<span id="seconds">00</span></h4></li>
+			<li><h4>Time: <span class="clock"></span></h4></li>
 		</ul>
 	</div>
-	<!--	<div class="column bg-white">
-		<h3>Table 25</h3>
-		<ul class= "list-unstyled">
-			<li><h4>Seat: {{seats[0]}}</h4></li>
-				<ul class= "list-unstyled">
-					<li> Entree: {{entrees[0]}}</li>
-					<li> Sides: {{sides[0]}}</li>
-				</ul>
-			<li><h4>Seat: {{seats[1]}}</h4></li>
-				<ul class= "list-unstyled">
-					<li> Entree: {{entrees[1]}}</li>
-					<li> Sides: {{sides[1]}}</li>
-				</ul>
-			<li><h4>Seat: {{seats[2]}}</h4></li>
-				<ul class= "list-unstyled">
-					<li> Entree: {{entrees[2]}}</li>
-					<li> Sides: {{sides[2]}}</li>
-				</ul>
-			<li><h4>Seat: {{seats[3]}}</h4></li>
-				<ul class= "list-unstyled">
-					<li> Entree: {{entrees[3]}}</li>
-					<li> Sides: {{sides[3]}}</li>
-				</ul>
-			<li><h4>Time in: 7:34</h4></li>
-		</ul>
-	</div>	<div class="column bg-white">
-		<h3>Table 44</h3>
-		<ul class= "list-unstyled">
-			<li><h4>Seat: {{seats[0]}}</h4></li>
-				<ul class= "list-unstyled">
-					<li> Entree: {{entrees[0]}}</li>
-					<li> Sides: {{sides[0]}}</li>
-				</ul>
-			<li><h4>Seat: {{seats[1]}}</h4></li>
-				<ul class= "list-unstyled">
-					<li> Entree: {{entrees[1]}}</li>
-					<li> Sides: {{sides[1]}}</li>
-				</ul>
-			<li><h4>Seat: {{seats[2]}}</h4></li>
-				<ul class= "list-unstyled">
-					<li> Entree: {{entrees[2]}}</li>
-					<li> Sides: {{sides[2]}}</li>
-				</ul>
-			<li><h4>Seat: {{seats[3]}}</h4></li>
-				<ul class= "list-unstyled">
-					<li> Entree: {{entrees[3]}}</li>
-					<li> Sides: {{sides[3]}}</li>
-				</ul>
-			<li><h4>Time in: 4:42</h4></li>
-		</ul>
-	</div>-->
-</div>
+	</div>
 </div>
 <div class="container" style="postion:relative; margin-top: 0%;">
 	<button id = "C1" (click) = "clearOrder1()" class ="btn btn-success"> Clear First Order</button>
@@ -127,3 +76,4 @@
 </div>
 </body>
 </html>
+
