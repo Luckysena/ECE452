@@ -32,7 +32,7 @@ export class OrdersComponent implements OnInit {
   }
 
   clearOrder1(){
-    resetClock1();
+//    resetClock1();
   }
   clearOrder2(){
 
@@ -56,29 +56,52 @@ export class OrdersComponent implements OnInit {
   }
 }
 //JS Timer for the tickets
-var sec = 0;
-var sec1 = 0;
-var sec2 = 0;
-var s0, s1, s2;
-function pad ( val ) { return val > 9 ? val : "0" + val; }
+function initTime(){
+  var iTime = new Date();
+  var iM = iTime.getTime();
+  return iM;
+}
+var iMill = initTime();
+var c = document.getElementsByClassName("clock");
+var j = 0;
+setInterval(function(){myTime(j)}, 1000);
+//var iMill = [];
+while(j<c.length)
+{
+  //iMill[j] = initTime();
+  myTime(j);
+  j++;
+}
 
-setInterval( clockOne, 1000);
-function clockOne(){
-  document.getElementById("seconds").innerHTML=pad(++sec%60);
-  s0 = sec/60;
-  var min0= s0.toString();
-  document.getElementById("minutes").innerHTML=pad(parseInt(min0,10));
-  if(s0>=7){
-    document.getElementById("ticket0").style.backgroundColor = "yellow";
-  }
-  else if(s0>=10){
-    document.getElementById("ticket0").style.backgroundColor = "red";
-  }
-  else{
-    document.getElementById("ticket0").style.backgroundColor = "white";
+function myTime(j) {
+  var cTime = new Date();
+  var cMill = cTime.getTime();
+  var tMill = cMill - iMill;
+  var tSec = Math.round(tMill/1000);
+  var t2Sec = ++tSec%60;
+  var tMin = Math.floor(tSec/60);
+  var sec = t2Sec.toString();
+  var min = tMin.toString();
+  min = checkTime(min);
+  sec = checkTime(sec);
+  for(var i =0; i < c.length; i++){
+    document.getElementsByClassName("clock")[i].innerHTML = min + ":" + sec;
+    let  colElements = document.getElementsByClassName("column") as HTMLCollectionOf<HTMLElement>;
+    if(tMin<7){
+      colElements[i].style.backgroundColor = "white";
+    }
+    else if(tMin>=7&&tMin<10){
+      colElements[i].style.backgroundColor = "yellow";
+    }
+    else if(tMin>=10){
+      colElements[i].style.backgroundColor = "red";
+    }
   }
 }
-function resetClock1(){
-  sec = 0;
-  s0 =0;
+function checkTime(i) {
+    if (i < 10) {
+        i = "0" + i;
+    }
+    return i;
 }
+
