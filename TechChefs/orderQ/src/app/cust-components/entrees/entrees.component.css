@@ -73,3 +73,54 @@ p.sub-footer-text a{
 .indent{
   padding-left: 1.8em;
 }
+
+.height{
+  line-height: 200px;
+}
+
+li{
+  list-style-type: none;
+  border: 5px solid rgba(2, 75, 24, 0.59);
+}
+
+p.desc-text{
+  font-family: 'Raleway', sans-serif;
+  font-size: 20px;
+  line-height: 35px;
+  text-align: justify;
+  
+}
+
+p.entree-name{
+  font-family: 'Lobster', cursive;
+  font-size: 30px !important;
+}
+
+.indent{
+  padding-left: 1.8em;
+}
+
+.butt-text{
+  font-family: 'Raleway', sans-serif;
+  font-size: 20px;
+  color: #9BE86F;
+  background-color: black;
+}
+
+.wrapper {
+  display: flex;
+}
+
+#sidebar {
+  min-width: 250px;
+  max-width: 250px;
+  height: 100vh;
+}
+
+p.category{
+  font-family: 'Dancing Script', cursive;
+  font-size: 100px;
+  text-align: center;
+  color: rgb(13, 30, 171);
+}
+

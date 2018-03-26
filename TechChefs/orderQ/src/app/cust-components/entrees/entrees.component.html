@@ -1,57 +1,144 @@
 <html lang="en">
+
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
+
 <body>
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container">
-        <div class="row">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand">Tech Chefs</a>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-                <a class="color_animation" style="padding-left: 15em" routerLink="/home" routerLinkActive="active">WELCOME</a>&emsp;&emsp;&emsp;
-                <a class="color_animation indent" href="#story">ABOUT</a>&emsp;&emsp;&emsp;
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="row">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <a class="navbar-brand">Tech Chefs</a>&emsp;&emsp;&emsp;
+                    <a class="color_animation" style="padding-left: 15em" routerLink="/home" routerLinkActive="active">WELCOME</a>&emsp;&emsp;&emsp;
+                    <a class="color_animation indent" href="#story">ABOUT</a>&emsp;&emsp;&emsp;
 
-                <a class="color_animation indent" routerLink="/entree" routerLinkActive="active">MENU&ORDER</a>&emsp;&emsp;&emsp;
+                    <a class="color_animation indent" routerLink="/entrees" routerLinkActive="active">MENU&ORDER</a>&emsp;&emsp;&emsp;
 
-                <a class="color_animation indent" href="#reservation">RESERVATION</a>&emsp;&emsp;&emsp;
+                    <a class="color_animation indent" href="#reservation">RESERVATION</a>&emsp;&emsp;&emsp;
 
-                <a class="color_animation indent" href="#contact">CONTACT</a>&emsp;&emsp;&emsp;
+                    <a class="color_animation indent" href="#contact">CONTACT</a>&emsp;&emsp;&emsp;
+                    <a class="color_animation indent" routerLink="/place-order" routerLinkActive="active">
+                        <span class="glyphicon glyphicon-shopping-cart"></span> CART</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div id="beef">
+        <p class="category">Beef Entrees</p>
+
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-6 ">
+                    <div *ngFor="let image of beefImages">
+                        <img src="{{imageURL + image}}" width="400" height="220">
+                        <p></p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div *ngFor="let item of menuObservable | async">
+                        <div *ngIf="isBeefEntree(item.Type)" style="padding-bottom:10px">
+                            <li>
+                                <p class="entree-name">{{item.Name}}</p>
+                                <p class="desc-text indent">Price: ${{item.Price}}</p>
+                                <p class="desc-text indent">
+                                    {{item.Description}}
+                                </p>
+                                &emsp;&emsp;<button mat-button class="mx-auto butt-text" (click)="add(item.Name)">Add to Cart</button>
+                            </li>
+                            <p></p>
+                        </div>
+
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-</nav>
+    <div id="chicken">
+        <p class="category">Chicken Entrees</p>
 
-<div *ngFor="let item of menuObservable | async">
-	{{item.Name}}
-	Price: {{item.Price}}
-	<button mat-button (click) = "add(item.Name)">Add to Cart</button>
-	<button mat-button (click) = "remove(item.Name)">Remove from Cart</button>
-</div>
+        <div class="container">
+            <div class="row">
 
-<footer class="sub_footer">
-		<div class="container">
-			<div class="col-md-4">
-				<p class="sub-footer-text text-center">&copy; Restaurant 2018, Theme by TechChefs</p>
-			</div>
-			<div class="col-md-4">
-				<p class="sub-footer-text text-center">Back to
-					<a href="#top">TOP</a>
-				</p>
-			</div>
-			<div class="col-md-4">
-				<p class="sub-footer-text text-center">Built With Care By
-					<a href="#" target="_blank">Us</a>
-				</p>
-			</div>
-		</div>
-	</footer>
-	</body>
+                <div class="col-md-6 ">
+                    <div *ngFor="let image of chickenImages">
+                        <img src="{{imageURL + image}}" width="400" height="220">
+                        <p></p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div *ngFor="let item of menuObservable | async">
+                        <div *ngIf="isChickenEntree(item.Type)"  style="padding-bottom:10px">
+                            <li>
+                                <p class="entree-name">{{item.Name}}</p>
+                                <p class="desc-text indent">Price: ${{item.Price}}</p>
+                                <p class="desc-text indent">
+                                    {{item.Description}}
+                                </p>
+                                &emsp;&emsp;<button mat-button class="butt-text" (click)="add(item.Name)">Add to Cart</button>
+
+                            </li>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="fish">
+        <p class="category">Fish Entrees</p>
+
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-6 ">
+                    <div *ngFor="let image of fishImages">
+                        <img src="{{imageURL + image}}" width="400" height="220">
+                        <p></p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div *ngFor="let item of menuObservable | async">
+                        <div *ngIf="isFishEntree(item.Type)"  style="padding-bottom:10px">
+                            <li>
+                                <p class="entree-name">{{item.Name}}</p>
+                                <p class="desc-text indent">Price: ${{item.Price}}</p>
+                                <p class="desc-text indent">
+                                    {{item.Description}}
+                                </p>
+                                &emsp;&emsp;<button mat-button class="butt-text" (click)="add(item.Name)">Add to Cart</button>
+
+                            </li>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="sub_footer">
+        <div class="container">
+            <div class="col-md-4">
+                <p class="sub-footer-text text-center">&copy; Restaurant 2018, Theme by TechChefs</p>
+            </div>
+            <div class="col-md-4">
+                <p class="sub-footer-text text-center">Back to
+                    <a href="#top">TOP</a>
+                </p>
+            </div>
+            <div class="col-md-4">
+                <p class="sub-footer-text text-center">Built With Care By
+                    <a href="#" target="_blank">Us</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+</body>
+
 </html>

@@ -1,11 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { AngularFireDatabase } from 'angularfire2/database';
+import { Observable } from 'rxjs/Observable';
+
+
 
 @Component({
   selector: 'app-entrees',
   templateUrl: './entrees.component.html',
-  styleUrls: ['./entrees.component.css']
+  styleUrls: ['./entrees.component.css'],
 })
 export class EntreesComponent implements OnInit {
 
@@ -19,6 +22,7 @@ export class EntreesComponent implements OnInit {
     }
     this.cookieService.set(key, String(num));
   }
+
 
   remove(key: string): void {
     var num;
@@ -38,8 +42,41 @@ export class EntreesComponent implements OnInit {
   getInv(listPath): Observable<any[]> {
     return this.db.list(listPath).valueChanges();
   }
+
+  imageURL;
+  beefImages;
+  entrees;
+  chickenImages;
+  fishImages;
+
+  isBeefEntree(item: string): boolean{
+    if(item=='Beef Entree'){
+      return true;
+    }
+    return false;
+  }
+
+  isChickenEntree(item: string): boolean{
+    if(item=='Chicken Entree'){
+      return true;
+    }
+    return false;
+  }
+
+  isFishEntree(item: string): boolean{
+    if(item=='Fish Entree'){
+      return true;
+    }
+    return false;
+  }
+  
+
   constructor( private cookieService: CookieService, private db: AngularFireDatabase) { }
   ngOnInit(): void {
     this.menuObservable = this.getInv('/menu');
+    this.imageURL = '../../../assets/images/';
+    this.beefImages = ['filet_mingon.jpg','rib_eye.jpg'];
+    this.chickenImages = ['chicken_parm.jpg','chicken_alfredo.jpg'];
+    this.fishImages = ['salmon.jpg','shrimp_scampi.jpg'];
   }
 }

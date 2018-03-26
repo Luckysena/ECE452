@@ -39,7 +39,7 @@ export class PlaceOrderComponent implements OnInit {
   }
 
   ngOnInit(): void{
-    this.cart = new Array<String>;
+    this.cart = new Array<String>();
     var allCookies = this.cookieService.getAll();
     for (let key in allCookies) {
       this.cart.push(key);

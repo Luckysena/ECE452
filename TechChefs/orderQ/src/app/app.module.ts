@@ -112,7 +112,6 @@ import { PlaceOrderComponent } from './cust-components/place-order/place-order.c
     AngularFireDatabaseModule,
     AngularFireAuthModule,
 
-
   ],
   providers: [DataService, CookieService],
   bootstrap: [AppComponent]
