@@ -35,33 +35,39 @@
 </div>
 <div class = "container">
 <div class="row">
-	<div id = "ticket0" src onerror = 'initTime()' class="column" style="background-color:white" *ngFor="let Orders of ordObservable | async">
-		<h3>Table: {{Orders.Table}}</h3>
+	<div id = "ticket0" src onerror = 'initTime()' class="column" style="background-color:white">
+		<h3>Table: {{table[0]}}</h3>
 		<ul class= "list-unstyled">
-			<li><h4>Seat: {{seats[0]}}</h4></li>
-				<ul class= "list-unstyled">
-					<li> Entree: {{Orders.Item1.Name}}   Amount: {{Orders.Item1.Quantity}}</li>
-					<li> Sides: {{Orders.Sides}}</li>
-				</ul>
-			<li><h4>Seat: {{seats[1]}}</h4></li>
-				<ul class= "list-unstyled">
-					<li> Entree: {{Orders.Entrees}}</li>
-					<li> Sides: {{Orders.Sides}}</li>
-				</ul>
-			<li><h4>Seat: {{seats[2]}}</h4></li>
-				<ul class= "list-unstyled">
-					<li> Entree: {{Orders.Entrees}}</li>
-					<li> Sides: {{Orders.Sides}}</li>
-				</ul>
-			<li><h4>Seat: {{seats[3]}}</h4></li>
-				<ul class= "list-unstyled">
-					<li> Entree: {{Orders.Entrees}}</li>
-					<li> Sides: {{Orders.Sides}}</li>
+			<li><h4></h4></li>
+				<ul class= "list-unstyled" *ngFor="let Orders of ordObservable1 | async">
+					<li *ngIf="Orders.Name"> {{Orders.Name}}   Amount: {{Orders.Quantity}}</li>
 				</ul>
 			<li><h4>Time: <span class="clock"></span></h4></li>
 		</ul>
 	</div>
+	
+	<div id = "ticket0" src onerror = 'initTime()' class="column" style="background-color:white">
+		<h3>Table: {{table[1]}}</h3>
+		<ul class= "list-unstyled">
+			<li><h4></h4></li>
+				<ul class= "list-unstyled" *ngFor="let Orders of ordObservable2 | async">
+					<li *ngIf="Orders.Name"> {{Orders.Name}}   Amount: {{Orders.Quantity}}</li>
+				</ul>
+			<li><h4>Time: <span class="clock"></span></h4></li>
+		</ul>
 	</div>
+	
+	<div id = "ticket0" src onerror = 'initTime()' class="column" style="background-color:white">
+		<h3>Table: {{table[2]}}</h3>
+		<ul class= "list-unstyled">
+			<li><h4></h4></li>
+				<ul class= "list-unstyled" *ngFor="let Orders of ordObservable3 | async">
+					<li *ngIf="Orders.Name"> {{Orders.Name}}   Amount: {{Orders.Quantity}}</li>
+				</ul>
+			<li><h4>Time: <span class="clock"></span></h4></li>
+		</ul>
+	</div>
+</div>
 </div>
 <div class="container" style="postion:relative; margin-top: 0%;">
 	<button id = "C1" (click) = "clearOrder1()" class ="btn btn-success"> Clear First Order</button>
