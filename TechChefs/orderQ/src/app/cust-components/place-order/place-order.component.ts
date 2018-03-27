@@ -1,14 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
+import { AngularFireDatabase } from 'angularfire2/database';
+import { Observable } from 'rxjs/Observable';
+import { Order } from './order'
+import { Item } from './item'
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-place-order',
   templateUrl: './place-order.component.html',
   styleUrls: ['./place-order.component.css']
 })
+
 export class PlaceOrderComponent implements OnInit {
   cart;
-  constructor( private cookieService: CookieService ) {}
+  constructor( private cookieService: CookieService, private db: AngularFireDatabase, private datePipe: DatePipe ) {}
 
   getQuantity(key: string): number {
     return Number(this.cookieService.get(key));
@@ -38,14 +44,22 @@ export class PlaceOrderComponent implements OnInit {
     this.cookieService.set(key, String(num));
   }
 
+  pushOrder(): void {
+    let items = new Array<Item>();
+    for (let key of this.cart) {
+       items.push(new Item(key, this.getQuantity(key)));
+    }
+    let order = new Order(items, 55, 5, this.datePipe.transform(Date.now(), "yyyyMMddHHmmss"));
+    this.db.list('/Orders').push(order);
+    this.cookieService.deleteAll();
+  }
+
   ngOnInit(): void{
     this.cart = new Array<String>();
     var allCookies = this.cookieService.getAll();
     for (let key in allCookies) {
       this.cart.push(key);
     }
-  //  this.cart = JSON.parse(JSON.stringify(cookies));
-    //console.log(this.cart);
   }
 
 }

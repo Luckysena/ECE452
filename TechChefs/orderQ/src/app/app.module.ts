@@ -21,6 +21,7 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { environment } from './../environments/environment';
 import { CookieService } from 'ngx-cookie-service';
+import { DatePipe } from '@angular/common';
 
 import {
   MatAutocompleteModule,
@@ -58,6 +59,7 @@ import 'hammerjs';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './cust-components/home/home.component';
 import { PlaceOrderComponent } from './cust-components/place-order/place-order.component';
+import { ConfirmComponent } from './cust-components/confirm/confirm.component';
 
 
 @NgModule({
@@ -72,6 +74,7 @@ import { PlaceOrderComponent } from './cust-components/place-order/place-order.c
     LoginComponent,
     HomeComponent,
     PlaceOrderComponent,
+    ConfirmComponent,
   ],
   imports: [
     BrowserAnimationsModule,
@@ -113,7 +116,7 @@ import { PlaceOrderComponent } from './cust-components/place-order/place-order.c
     AngularFireAuthModule,
 
   ],
-  providers: [DataService, CookieService],
+  providers: [DataService, CookieService, DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

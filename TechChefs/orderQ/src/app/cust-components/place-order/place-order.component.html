@@ -26,8 +26,11 @@
       </div>
     </div>
   </nav>
+  <button (click) = "pushOrder()" routerLink="/confirm">Place Order</button>
   <li *ngFor="let item of cart">
     {{item}} {{getQuantity(item)}}
+    <button (click) = "add(item)">+</button>
+    <button (click) = "remove(item)">-</button>
   </li>
   <footer class="sub_footer">
     <div class="container">

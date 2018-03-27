@@ -69,7 +69,6 @@ export class EntreesComponent implements OnInit {
     }
     return false;
   }
-  
 
   constructor( private cookieService: CookieService, private db: AngularFireDatabase) { }
   ngOnInit(): void {
