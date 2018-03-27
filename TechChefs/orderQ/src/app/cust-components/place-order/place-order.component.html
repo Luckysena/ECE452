@@ -26,12 +26,23 @@
       </div>
     </div>
   </nav>
-  <button (click) = "pushOrder()" routerLink="/confirm">Place Order</button>
-  <li *ngFor="let item of cart">
-    {{item}} {{getQuantity(item)}}
-    <button (click) = "add(item)">+</button>
-    <button (click) = "remove(item)">-</button>
-  </li>
+  <!--Display ordered items and post order button-->
+  <div *ngIf ="cart.length">
+    <li *ngFor="let item of cart">
+      {{item}} {{getQuantity(item)}}
+      <button (click) = "add(item)">+</button>
+      <button (click) = "remove(item)">-</button>
+    </li>
+    <div>
+      <input [(ngModel)]="table" placeholder="Table Number" type="number"/>
+    </div>
+    <div>
+      <input [(ngModel)]="numGuests" placeholder="Number of Guests" type="number"/>
+    </div>
+    <button *ngIf="isValidInput()" (click) = "pushOrder()" routerLink="/confirm">Place Order</button>
+    <button *ngIf="!isValidInput()" disabled style="color:grey">Place Order</button>
+  </div>
+  <!---->
   <footer class="sub_footer">
     <div class="container">
       <div class="col-md-4">

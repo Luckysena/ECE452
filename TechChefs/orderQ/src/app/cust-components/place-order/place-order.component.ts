@@ -13,11 +13,19 @@ import { DatePipe } from '@angular/common';
 })
 
 export class PlaceOrderComponent implements OnInit {
+
   cart;
+  table;
+  numGuests;
+
   constructor( private cookieService: CookieService, private db: AngularFireDatabase, private datePipe: DatePipe ) {}
 
   getQuantity(key: string): number {
     return Number(this.cookieService.get(key));
+  }
+
+  isValidInput(): boolean {
+    return (this.table !== undefined && this.numGuests != undefined && this.table > 0 && this.numGuests > 0);
   }
 
   add(key: string): void {
@@ -45,13 +53,13 @@ export class PlaceOrderComponent implements OnInit {
   }
 
   pushOrder(): void {
-    let items = new Array<Item>();
-    for (let key of this.cart) {
-       items.push(new Item(key, this.getQuantity(key)));
-    }
-    let order = new Order(items, 55, 5, this.datePipe.transform(Date.now(), "yyyyMMddHHmmss"));
-    this.db.list('/Orders').push(order);
-    this.cookieService.deleteAll();
+      let items = new Array<Item>();
+      for (let key of this.cart) {
+         items.push(new Item(key, this.getQuantity(key)));
+      }
+      let order = new Order(items, this.table, this.numGuests, this.datePipe.transform(Date.now(), "yyyyMMddHHmmss"));
+      this.db.list('/Orders').push(order);
+      this.cookieService.deleteAll();
   }
 
   ngOnInit(): void{
