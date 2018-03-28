@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
-import { AngularFireDatabase } from 'angularfire2/database';
-//import {}
+import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import { Observable } from 'rxjs/Observable';
+import {DataService} from '../../services/data.service';
+
 
 
 @Component({
@@ -11,8 +12,8 @@ import { Observable } from 'rxjs/Observable';
   styleUrls: ['./orders.component.css']
 })
 export class OrdersComponent implements OnInit {
-
-	table: number[];
+  orders: AngularFireList<any[]>;
+  index: number = 0;
 	seats: number[];
 	entrees: string[];
 	sides: string[];
@@ -21,42 +22,35 @@ export class OrdersComponent implements OnInit {
 	ordObservable1: Observable<any[]>;
 	ordObservable2: Observable<any[]>;
 	ordObservable3: Observable<any[]>;
-  constructor(private db: AngularFireDatabase, private router: Router) {
+  constructor(private db: AngularFireDatabase, private router: Router, private dServe: DataService) {
 
 	}
 
   ngOnInit() {
-	this.ordObservable1 = this.getOrd('/Orders/1');
-	this.ordObservable2 = this.getOrd('/Orders/2');
-	this.ordObservable3 = this.getOrd('/Orders/3');
-	this.ordObservable = this.getOrd('/Orders');
-  	this.table = [43, 25, 34] ;
-  	this.seats = [1, 2, 3, 4];
-  	this.sides = ['Broccoli', 'Mashed Potatoes', 'Carrots', 'Mac and Cheese'];
-  }
+	   this.ordObservable = this.getOrd('/Orders');
+    }
 	getOrd(listPath): Observable<any[]> {
 		return this.db.list(listPath).valueChanges();
   }
-
+  orderReady(){
+  }
   clearOrder1(){
-//    resetClock1();
   }
   clearOrder2(){
-
   }
   clearOrder3(){
-
   }
   toggSearch(){
   this.isSearch=!this.isSearch;
   }
   searchOrder(tNum){
-
-
     this.router.navigate(['/table/43']);
   }
   deleteOrder(){
 
+  }
+  logout(){
+    this.dServe.logout();
   }
   viewInv(){
   this.router.navigate(['/inventory']);
@@ -112,14 +106,3 @@ function checkTime(i) {
     }
     return i;
 }
-/*
-function dataRet(){
-	var item1 = firebase.database().ref('/Orders/1/Item1/name');
-	item1.on('value', function(snapshot) {
-		updateItem(postElement, snapshot.val());
-	});
-}
-
-function updateItem(postElement, val){
-	document.getElementById("demo") = val;
-}*/
