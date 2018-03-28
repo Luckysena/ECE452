@@ -57,7 +57,7 @@ export class PlaceOrderComponent implements OnInit {
       for (let key of this.cart) {
          items.push(new Item(key, this.getQuantity(key)));
       }
-      let order = new Order(items, this.table, this.numGuests, Date.now());
+      let order = new Order(items, this.table, this.numGuests, String(Date.now()));
       this.db.list('/Orders').push(order);
       this.cookieService.deleteAll();
   }

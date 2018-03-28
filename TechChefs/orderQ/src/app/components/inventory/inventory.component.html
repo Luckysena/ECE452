@@ -1,10 +1,124 @@
 <html>
-<head></head>
-<body class>
-  <ul>
-      <div *ngFor="let Inventory of invObservable | async">
-              <li>{{Inventory.Quantity}} </li>
+
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <div class="row">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <a class="navbar-brand">Tech Chefs</a>&emsp;&emsp;&emsp;
+          <a class="color_animation" style="padding-left: 15em" routerLink="/home" routerLinkActive="active">WELCOME</a>&emsp;&emsp;&emsp;
+          <a class="color_animation indent" href="#story">ABOUT</a>&emsp;&emsp;&emsp;
+
+          <a class="color_animation indent" routerLink="/entrees" routerLinkActive="active">MENU&ORDER</a>&emsp;&emsp;&emsp;
+
+          <a class="color_animation indent" href="#reservation">RESERVATION</a>&emsp;&emsp;&emsp;
+
+          <a class="color_animation indent" href="#contact">CONTACT</a>&emsp;&emsp;&emsp;
+          <a class="color_animation indent" routerLink="/place-order" routerLinkActive="active">
+            <span class="glyphicon glyphicon-shopping-cart"></span> CART</a>
+        </div>
       </div>
-  </ul>
+    </div>
+  </nav>
+  <div class="example-container mat-elevation-z8">
+
+    <mat-table #table [dataSource]="dataSource">
+
+
+
+      <ng-container matColumnDef="Name">
+        <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.Name}} </mat-cell>
+      </ng-container>
+
+
+      <ng-container matColumnDef="Quantity">
+        <mat-header-cell *matHeaderCellDef> Quantity </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+
+          <mat-form-field class="example-full-width">
+            <input matInput #updatetext [value]="element.Quantity" [(ngModel)]="element.Quantity">
+          </mat-form-field>
+
+          <button class="btn" (click)="edit(element,updatetext.value)" color="primary">
+            <i class="fa fa-edit"></i>
+          </button>
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="Unit">
+        <mat-header-cell *matHeaderCellDef> Unit</mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.Unit}} </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="PricePer">
+        <mat-header-cell *matHeaderCellDef> Price per Unit</mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.PricePer}} </mat-cell>
+      </ng-container>
+
+      <!-- Checkbox Column -->
+      <ng-container matColumnDef="delete">
+        <mat-header-cell *matHeaderCellDef></mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <button mat-raised-button (click)="delete(element)" color="primary">delete</button>
+        </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="edit">
+        <mat-header-cell *matHeaderCellDef></mat-header-cell>
+        <mat-cell *matCellDef="let element">
+
+        </mat-cell>
+      </ng-container>
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+  </div>
+
+
+
+  <mat-form-field>
+    <div class="ex-form">
+      <input matInput placeholder="Name" [(ngModel)]="InvDetails.Name">
+    </div>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Quantity" [(ngModel)]="InvDetails.Quantity">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Unit" [(ngModel)]="InvDetails.Unit">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Price Per Unit" [(ngModel)]="InvDetails.PricePer">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="minimum" [(ngModel)]="InvDetails.min">
+  </mat-form-field>
+
+  <button mat-raised-button (click)="addInv()" color="primary">Add</button>
+  
+  <footer class="sub_footer">
+    <div class="container">
+      <div class="col-md-4">
+        <p class="sub-footer-text text-center">&copy; Restaurant 2018, Theme by TechChefs</p>
+      </div>
+      <div class="col-md-4">
+        <p class="sub-footer-text text-center">Back to
+          <a href="#top">TOP</a>
+        </p>
+      </div>
+      <div class="col-md-4">
+        <p class="sub-footer-text text-center">Built With Care By
+          <a href="#" target="_blank">Us</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
 </body>
+
 </html>

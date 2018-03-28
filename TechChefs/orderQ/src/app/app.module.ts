@@ -11,6 +11,7 @@ import { OrdersComponent } from './components/orders/orders.component';
 import { AboutComponent } from './components/about/about.component';
 
 import {DataService} from './services/data.service';
+import { InvServiceService } from './components/inventory/inv-service.service';
 import { SearchorderComponent } from './components/searchorder/searchorder.component';
 import { InventoryComponent } from './components/inventory/inventory.component';
 import { ServerComponent } from './components/server/server.component';
@@ -19,6 +20,7 @@ import { EntreesComponent } from './cust-components/entrees/entrees.component';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { environment } from './../environments/environment';
 import { CookieService } from 'ngx-cookie-service';
 import { DatePipe } from '@angular/common';
@@ -114,9 +116,9 @@ import { ConfirmComponent } from './cust-components/confirm/confirm.component';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
-
+    AngularFirestoreModule
   ],
-  providers: [DataService, CookieService, DatePipe],
+  providers: [DataService, CookieService, DatePipe, InvServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
