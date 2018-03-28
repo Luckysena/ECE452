@@ -1,9 +1,10 @@
 <html>
 	<body class= "bg-dark">
+	<button (click)= "logout()" class= "btn-lg btn-primary">Logout</button>
   <div class="container">
       <div class="row">
         <div class="col-md-4 col-sm-4 col-xs-4">
-       	
+
        	<table class="table table-striped table-bordered table-hover table-condensed bg-light">
         <tr>
           <th>Table</th>
@@ -30,24 +31,22 @@
           <td>Vacant-Ready</td>
         </tr>
       </table>
-        </div>
+			<button id="alert"(click)="toggAlert()" class="btn btn-primary" type="button">
+				Alerts <span class="badge"></span>
+			</button>
+			<button (click)="goMenu()" class= "btn btn-primary" type ="button">View Menu</button>
+			<button class= "btn btn-primary" type ="button">View Schedule</button>
+			<ul class = "list-unstyled" style="background-color:white" *ngIf=isAlert >
+				<li class = "alerts" *ngFor="let alert of alerts">{{alert}}</li>
+			</ul>
+
+				</div>
+
         <div class="col-md-8 col-sm-8 col-xs-8">
         </div>
       </div>
   </div>
-  <div class = container>
-        <button id="alert"(click)="toggAlert()" class="btn btn-primary" type="button">
-        Alerts <span class="badge">4</span>
-      </button>
-      <button class= "btn btn-primary" type ="button">View Menu</button>
-      <button class= "btn btn-primary" type ="button">View Schedule</button>
-  </div>
-  <div class = container>
-  <ul class = "list-group" *ngIf=isAlert>
-    <li class = "list-group-item">Table 44's food is ready</li>
-    <li class = "list-group-item">Table 45 needs to be cleared</li>
-  </ul>
-  </div>
 
 	</body>
 </html>
+
