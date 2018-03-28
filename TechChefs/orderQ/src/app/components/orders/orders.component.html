@@ -50,7 +50,7 @@
           <li *ngIf = "Orders.items[8]"><h5>Dish: {{Orders.items[8].name}} </h5><h6> Amount: {{Orders.items[8].quantity}}</h6></li>
           <li *ngIf = "Orders.items[9]"><h5>Dish: {{Orders.items[9].name}} </h5><h6> Amount: {{Orders.items[9].quantity}}</h6></li>
 				</ul>
-			<li><h4>Time: <span class="clock"></span></h4></li>
+			<li><h4>Time: <span class="clock">{{Orders.timestamp}}</span></h4></li>
 		</ul>
 	</div>
 </div>
