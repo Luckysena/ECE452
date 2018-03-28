@@ -42,6 +42,12 @@
     <button *ngIf="isValidInput()" (click) = "pushOrder()" routerLink="/confirm">Place Order</button>
     <button *ngIf="!isValidInput()" disabled style="color:grey">Place Order</button>
   </div>
+  <div *ngIf ="!cart.length">
+    You have no items selected. Take a look at our menu and make a selection!
+    <div>
+      <button mat-button routerLink = "/entrees">Menu</button>
+    </div>
+  </div>
   <!---->
   <footer class="sub_footer">
     <div class="container">
