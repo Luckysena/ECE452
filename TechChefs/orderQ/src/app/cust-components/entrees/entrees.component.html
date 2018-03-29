@@ -1,5 +1,5 @@
-<body >
-    
+<body>
+
     <div id="beef">
         <p class="category">Beef Entrees</p>
 
@@ -13,21 +13,24 @@
                     </div>
                 </div>
                 <div class="col-md-6">
+
                     <div *ngFor="let item of menuObservable | async">
                         <div *ngIf="isBeefEntree(item.Type)" style="padding-bottom:10px">
-                            <li>
-                                <p class="entree-name white">{{item.Name}}</p>
-                                <p class="desc-text indent white">Price: ${{item.Price}}</p>
-                                <p class="desc-text indent white">
-                                    {{item.Description}}
-                                </p>
-                                &emsp;&emsp;
-                                <button mat-button class="mx-auto butt-text white color_animation" (click)="both(item.Name)">Add to Cart</button>
-                            </li>
+                            <mat-card class="txtbkg">
+                                <li>
+                                    <p class="entree-name">{{item.Name}}</p>
+                                    <p class="desc-text indent">Price: ${{item.Price}}</p>
+                                    <p class="desc-text indent">
+                                        {{item.Description}}
+                                    </p>
+                                    &emsp;&emsp;
+                                    <button mat-button class="mx-auto butt-text white color_animation" (click)="both(item.Name)">Add to Cart</button>
+                                </li>
+                            </mat-card>
                             <p></p>
                         </div>
-
                     </div>
+
                 </div>
             </div>
         </div>

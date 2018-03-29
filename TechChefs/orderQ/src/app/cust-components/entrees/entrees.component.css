@@ -63,7 +63,7 @@ p.category{
 }
 
 body{
-  background-image: url("../../../assets/images/entreebkg.jpg");
+  background-image: url("../../../assets/images/hdrestbkg.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -77,6 +77,10 @@ body{
 
 .color_animation:hover{
   color: #9BE86F !important;
+}
+
+.txtbkg {
+  background-color:##f2f2f2;
 }
 
 
