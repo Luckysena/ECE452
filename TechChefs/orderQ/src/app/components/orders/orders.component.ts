@@ -12,15 +12,20 @@ import {DataService} from '../../services/data.service';
   styleUrls: ['./orders.component.css']
 })
 export class OrdersComponent implements OnInit {
-	orders: AngularFireList<any[]>;
+	ordersT: AngularFireList<any[]>;
 	isSearch: boolean = false;
 	ordObservable: Observable<any[]>;
-  constructor(private db: AngularFireDatabase, private router: Router, private dServe: DataService) {
-
-	}
+	constructor(private db: AngularFireDatabase, private router: Router, private dServe: DataService) {
+		this.ordersT = db.list('/Orders');
+		// Use snapshotChanges().map() to store the key
+		this.ordObservable = this.ordersT.snapshotChanges().map(changes => {
+		  return changes.map(c => ({ key: c.payload.key, ...c.payload.val() }));
+		});
+	
+		}
 
   ngOnInit() {
-	   this.ordObservable = this.getOrd('/Orders');
+	 //  this.ordObservable = this.getOrd('/Orders');
     }
 	getOrd(listPath): Observable<any[]> {
 		return this.db.list(listPath).valueChanges();
@@ -39,9 +44,17 @@ export class OrdersComponent implements OnInit {
   searchOrder(tNum){
     this.router.navigate(['/table/43']);
   }
-  deleteOrder(){
-
-  }
+  deleteOrder(key){
+	// var ref = name.snapshot();
+	  
+	  if(confirm("Are you sure you want to delete")){
+		console.log(key);
+		this.ordersT.remove(key);
+	  // console.log(name);
+  
+	  }
+  
+	}
   logout(){
     this.dServe.logout();
   }
