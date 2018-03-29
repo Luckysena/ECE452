@@ -93,7 +93,7 @@ function myTime() {
 		var min = Number(iMill[i].innerHTML.slice(0,pos));
 		var sec = Number(iMill[i].innerHTML.slice(pos+1,iMill[i].innerHTML.length));
 		//increments timer
-		sec = (sec + 2);
+		sec = (sec + 3);
 		if( sec >= 60 ){
 			sec = sec - 60;
 			min = min + 1;
@@ -118,7 +118,7 @@ function myTime() {
 	}
 }
 //sets interval for timer 
-setInterval(function(){myTime()}, 2000);
+setInterval(function(){myTime()}, 3000);
 
 //helps format timer
 function checkTime(i) {
