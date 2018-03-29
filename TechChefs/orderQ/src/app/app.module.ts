@@ -9,9 +9,10 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './Modules/app-routing.module';
 import { OrdersComponent } from './components/orders/orders.component';
 import { AboutComponent } from './components/about/about.component';
-
+import { EmployeeComponent } from './components/employee/employee.component';
 import {DataService} from './services/data.service';
 import { InvServiceService } from './components/inventory/inv-service.service';
+import { EmployeeService } from './components/employee/employee.service';
 import { SearchorderComponent } from './components/searchorder/searchorder.component';
 import { InventoryComponent } from './components/inventory/inventory.component';
 import { ServerComponent } from './components/server/server.component';
@@ -81,6 +82,7 @@ import { CartComponent } from './cust-components/cart/cart.component';
     ConfirmComponent,
     CustDashboardComponent,
     CartComponent,
+    EmployeeComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -122,7 +124,7 @@ import { CartComponent } from './cust-components/cart/cart.component';
     AngularFireAuthModule,
     AngularFirestoreModule
   ],
-  providers: [DataService, CookieService, DatePipe, InvServiceService],
+  providers: [DataService, CookieService, DatePipe, InvServiceService, EmployeeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
