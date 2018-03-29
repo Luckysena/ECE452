@@ -1,127 +1,178 @@
-<html lang="en">
-
+<html>
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
-
 <body>
-  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container">
-      <div class="row">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-          <a class="navbar-brand">Tech Chefs</a>&emsp;&emsp;&emsp;
-           <a class="color_animation" style="padding-left: 200em"  routerLinkActive="active"></a>&emsp;&emsp;&emsp;
-      <!--    <a class="color_animation indent" href="#story">ABOUT</a>&emsp;&emsp;&emsp;
+<div class="page">
+      <!-- Main Navbar-->
+      <header class="header">
+        <nav class="navbar">
+          <!-- Search Box-->
+          <div class="search-box">
+            <button class="dismiss"><i class="icon-close"></i></button>
+            <form id="searchForm" action="#" role="search">
+              <input type="search" placeholder="What are you looking for..." class="form-control">
+            </form>
+          </div>
+          <div class="container-fluid">
+            <div class="navbar-holder d-flex align-items-center justify-content-between">
+              <!-- Navbar Header-->
+              <div class="navbar-header">
+                <!-- Navbar Brand --><a href="../employee" class="navbar-brand">
+                  <div class="brand-text brand-big"><span>Manager </span><strong>Dashboard</strong></div>
+                  <div class="brand-text brand-small"><strong>MD</strong></div></a>
+                <!-- Toggle Button--><a id="toggle-btn" href="#" class="menu-btn active"><span></span><span></span><span></span></a>
+              </div>
+              <!-- Navbar Menu -->
+              <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center">
+                <!-- Search-->
+                <!-- <li class="nav-item d-flex align-items-center"><a id="search" href="#"><i class="icon-search"></i></a></li> -->
+                <!-- Logout    -->
+                <li class="nav-item"><a href="login.html" class="nav-link logout">Logout<i class="fa fa-sign-out"></i></a></li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </header>
+      <div class="page-content d-flex align-items-stretch">
+        <!-- Side Navbar -->
+        <nav class="side-navbar">
+          <!-- Sidebar Header-->
+          <div class="sidebar-header d-flex align-items-center">
+            <div class="avatar"><img src="../../../assets/images/Ivan.png" class="img-fluid rounded-circle"></div>
+            <div class="title">
+              <h1 class="h4">Ivan Marsic</h1>
+              <p>Manager</p>
+            </div>
+          </div>
+        
+          <ul class="list-unstyled">
+                    <li><a href="../employee" > <i class="icon-home"></i>Employee Schedule </a></li>
+                    <li class="active"><a href="inventory.html"> <i class="icon-grid"></i>Inventory</a></li>
+                    <li><a href="charts.html"> <i class="fa fa-bar-chart"></i>Revenue Graph </a></li>
+          </ul>
+        </nav>
+        <div class="content-inner">
+          <!-- Page Header-->
+          <header class="page-header">
+            <div class="container-fluid">
 
-          <a class="color_animation indent" routerLink="/dashboard/entrees" routerLinkActive="active">MENU&ORDER</a>&emsp;&emsp;&emsp;
+            </div>
+          </header>
+          <!-- Breadcrumb-->
+          <div class="breadcrumb-holder container-fluid">
+            <!-- <ul class="breadcrumb">
+              <li class="breadcrumb-item active">Tables</li>
+            </ul> -->
+          </div>
+          <section class="tables">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-lg-12">
+                  <!-- <div class="card"> -->
+                    <div class="card-close">
+                      <div class="dropdown">
+                        <button type="button" id="closeCard3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-ellipsis-v"></i></button>
+                        <div aria-labelledby="closeCard3" class="dropdown-menu dropdown-menu-right has-shadow"><a href="#" class="dropdown-item remove"> <i class="fa fa-times"></i>Close</a><a href="#" class="dropdown-item edit"> <i class="fa fa-gear"></i>Edit</a></div>
+                      </div>
+                    </div>
+                    <div class="card-header d-flex align-items-center">
+                      <h3 class="h4">Inventory</h3>
+                    </div>
+                    <mat-card>
 
-          <a class="color_animation indent" href="#reservation">RESERVATION</a>&emsp;&emsp;&emsp;
 
-          <a class="color_animation indent" href="#contact">CONTACT</a>&emsp;&emsp;&emsp;
-          <a class="color_animation indent" routerLink="/dashboard/place-order" routerLinkActive="active">
-            <i class="material-icons">shopping_cart</i>CART</a> -->
-              <!-- <a class="color_animation indent" (click)="openDialog()">
-              <i class="material-icons">shopping_cart</i>CART</a> -->
+                        <mat-table #table [dataSource]="dataSource">
+
+                          <ng-container matColumnDef="Name">
+                            <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+                            <mat-cell *matCellDef="let element"> {{element.Name}} </mat-cell>
+                          </ng-container>
+
+                          <ng-container matColumnDef="Quantity">
+                            <mat-header-cell *matHeaderCellDef> Quantity </mat-header-cell>
+                            <mat-cell *matCellDef="let element">
+
+                                <mat-form-field class="example-full-width">
+                                    <input matInput #updatetext [value]="element.Quantity" [(ngModel)]="element.Quantity">
+                                </mat-form-field>
+
+                                <button class="btn" (click)="edit(element,updatetext.value)" color="primary"> <i class="fa fa-edit"></i></button>
+                            </mat-cell>
+                          </ng-container>
+
+                          <ng-container matColumnDef="Unit">
+                            <mat-header-cell *matHeaderCellDef> Unit</mat-header-cell>
+                            <mat-cell *matCellDef="let element"> {{element.Unit}} </mat-cell>
+                          </ng-container>
+                          <ng-container matColumnDef="PricePer">
+                            <mat-header-cell *matHeaderCellDef> Price per Unit</mat-header-cell>
+                            <mat-cell *matCellDef="let element"> {{element.PricePer}} </mat-cell>
+                          </ng-container>
+
+
+                          <ng-container matColumnDef="delete">
+                            <mat-header-cell *matHeaderCellDef></mat-header-cell>
+                            <mat-cell *matCellDef="let element">
+                              <button mat-raised-button (click)="delete(element)" color="primary">delete</button>
+                            </mat-cell>
+                          </ng-container>
+                          <ng-container matColumnDef="edit">
+                            <mat-header-cell *matHeaderCellDef></mat-header-cell>
+                            <mat-cell *matCellDef="let element">
+
+                            </mat-cell>
+                          </ng-container>
+                          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                          <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+                        </mat-table>
+
+                    </mat-card>
+                    <div class="col-sm-6 col-centered">
+                    </div>
+                      <mat-card >
+                        <h3>Add to database</h3>
+                          <mat-form-field><div class="home">
+                            <input matInput placeholder="Name" [(ngModel)]="InvDetails.Name">
+                          </div>
+                          </mat-form-field>
+                          <mat-form-field>
+                            <input matInput placeholder="Quantity" [(ngModel)]="InvDetails.Quantity">
+                          </mat-form-field>
+                          <mat-form-field>
+                            <input matInput placeholder="Unit" [(ngModel)]="InvDetails.Unit">
+                          </mat-form-field>
+                          <mat-form-field>
+                            <input matInput placeholder="Price Per Unit" [(ngModel)]="InvDetails.PricePer">
+                          </mat-form-field>
+                          <mat-form-field>
+                            <input matInput placeholder="minimum" [(ngModel)]="InvDetails.min">
+                          </mat-form-field>
+
+                          <button mat-raised-button (click)="addInv()" color="primary">Add</button>
+
+                    </mat-card>
+                  <!-- </div> -->
+                </div>
+              </div>
+            </div>
+          </section>
+          <!-- Page Footer-->
+          <footer class="main-footer">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-sm-6">
+                  <p>Team 2 &copy; 2018</p>
+                </div>
+                <div class="col-sm-6 text-right">
+                  <p>Design for Software Engineering class</p>
+                </div>
+              </div>
+            </div>
+          </footer>
         </div>
       </div>
     </div>
-  </nav>
-  <div class="page">
-<mat-card  class="col-lg-6 col-centered">
-
-
-    <mat-table #table [dataSource]="dataSource">
-
-      <ng-container matColumnDef="Name">
-        <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.Name}} </mat-cell>
-      </ng-container>
-
-      <ng-container matColumnDef="Quantity">
-        <mat-header-cell *matHeaderCellDef> Quantity </mat-header-cell>
-        <mat-cell *matCellDef="let element">
-
-            <mat-form-field class="example-full-width">
-                <input matInput #updatetext [value]="element.Quantity" [(ngModel)]="element.Quantity">
-            </mat-form-field>
-
-            <button class="btn" (click)="edit(element,updatetext.value)" color="primary"> <i class="fa fa-edit"></i></button>
-        </mat-cell>
-      </ng-container>
-
-      <ng-container matColumnDef="Unit">
-        <mat-header-cell *matHeaderCellDef> Unit</mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.Unit}} </mat-cell>
-      </ng-container>
-      <ng-container matColumnDef="PricePer">
-        <mat-header-cell *matHeaderCellDef> Price per Unit</mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.PricePer}} </mat-cell>
-      </ng-container>
-
-
-      <ng-container matColumnDef="delete">
-        <mat-header-cell *matHeaderCellDef></mat-header-cell>
-        <mat-cell *matCellDef="let element">
-          <button mat-raised-button (click)="delete(element)" color="primary">delete</button>
-        </mat-cell>
-      </ng-container>
-      <ng-container matColumnDef="edit">
-        <mat-header-cell *matHeaderCellDef></mat-header-cell>
-        <mat-cell *matCellDef="let element">
-
-        </mat-cell>
-      </ng-container>
-      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-    </mat-table>
-
-</mat-card>
-<div class="col-sm-6 col-centered">
-</div>
-  <mat-card class="col-sm-6 col-centered">
-    <h3>Add to database</h3>
-      <mat-form-field><div class="home">
-        <input matInput placeholder="Name" [(ngModel)]="InvDetails.Name">
-      </div>
-      </mat-form-field>
-      <mat-form-field>
-        <input matInput placeholder="Quantity" [(ngModel)]="InvDetails.Quantity">
-      </mat-form-field>
-      <mat-form-field>
-        <input matInput placeholder="Unit" [(ngModel)]="InvDetails.Unit">
-      </mat-form-field>
-      <mat-form-field>
-        <input matInput placeholder="Price Per Unit" [(ngModel)]="InvDetails.PricePer">
-      </mat-form-field>
-      <mat-form-field>
-        <input matInput placeholder="minimum" [(ngModel)]="InvDetails.min">
-      </mat-form-field>
-
-      <button mat-raised-button (click)="addInv()" color="primary">Add</button>
-
-</mat-card>
-
-<!-- ============ Footer Section  ============= -->
-</div>
-<footer class="sub_footer">
-  <div class="container">
-    <div class="col-md-4">
-      <p class="sub-footer-text text-center">&copy; Restaurant 2018, Theme by TechChefs</p>
-    </div>
-    <div class="col-md-4">
-      <p class="sub-footer-text text-center">Back to
-        <a href="#top">TOP</a>
-      </p>
-    </div>
-    <div class="col-md-4">
-      <p class="sub-footer-text text-center">Built With Care By
-        <a href="#" target="_blank">Us</a>
-      </p>
-    </div>
-  </div>
-</footer>
 </body>
+</html>
