@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { OrdersComponent } from '../components/orders/orders.component';
 import { AboutComponent } from '../components/about/about.component';
-
+import{EmployeeComponent} from '../components/employee/employee.component';
 import { SearchorderComponent } from '../components/searchorder/searchorder.component';
 import { InventoryComponent } from '../components/inventory/inventory.component';
 import { ServerComponent } from '../components/server/server.component';
@@ -27,6 +27,7 @@ const appRoutes: Routes = [
     { path: 'server', component: ServerComponent },
     { path: 'table/43', component: SearchorderComponent },
     { path: 'inventory', component: InventoryComponent },
+    { path: 'employee', component: EmployeeComponent },
     { path: 'queue', component: OrdersComponent },
     { path: 'about', component: AboutComponent },
     { path: '', redirectTo: '/login', pathMatch: 'full' }
