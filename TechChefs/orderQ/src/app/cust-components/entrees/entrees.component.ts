@@ -70,6 +70,15 @@ export class EntreesComponent implements OnInit {
     return false;
   }
 
+  confirmed(){
+    confirm("Item added to cart!");
+  }
+
+  both(key: string){
+    this.confirmed();
+    this.add(key);
+  }
+
   constructor( private cookieService: CookieService, private db: AngularFireDatabase) { }
   ngOnInit(): void {
     this.menuObservable = this.getInv('/menu');

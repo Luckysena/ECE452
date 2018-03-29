@@ -12,19 +12,24 @@ import { LoginComponent } from '../login/login.component';
 import { HomeComponent } from '../cust-components/home/home.component';
 import { PlaceOrderComponent } from '../cust-components/place-order/place-order.component';
 import { ConfirmComponent } from '../cust-components/confirm/confirm.component';
+import { CustDashboardComponent } from '../cust-components/cust-dashboard/cust-dashboard.component';
 
 const appRoutes: Routes = [
-    { path:'login', component: LoginComponent },
-    { path:'entrees', component: EntreesComponent },
-    { path:'home', component: HomeComponent },
-    { path:'place-order', component: PlaceOrderComponent },
-    { path:'confirm', component: ConfirmComponent },
-    { path:'server', component:ServerComponent },
-    { path:'table/43',component:SearchorderComponent },
-    { path:'inventory',component:InventoryComponent },
-    { path:'queue',component:OrdersComponent },
-    { path:'about', component:AboutComponent },
-    { path: '', redirectTo:'/login', pathMatch: 'full' }
+    { path: 'login', component: LoginComponent },
+    {
+        path: 'dashboard', component: CustDashboardComponent, children: [
+            { path: 'home', component: HomeComponent },
+            { path: 'place-order', component: PlaceOrderComponent },
+            { path: 'confirm', component: ConfirmComponent },
+            { path: 'entrees', component: EntreesComponent },
+        ]
+    },
+    { path: 'server', component: ServerComponent },
+    { path: 'table/43', component: SearchorderComponent },
+    { path: 'inventory', component: InventoryComponent },
+    { path: 'queue', component: OrdersComponent },
+    { path: 'about', component: AboutComponent },
+    { path: '', redirectTo: '/login', pathMatch: 'full' }
 ];
 
 @NgModule({
@@ -32,4 +37,4 @@ const appRoutes: Routes = [
     exports: [RouterModule]
 })
 
-export class AppRoutingModule {}
+export class AppRoutingModule { }

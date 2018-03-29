@@ -1,32 +1,5 @@
-<html lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
-
-<body>
-    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-        <div class="container">
-            <div class="row">
-                <!-- Brand and toggle get grouped for better mobile display -->
-                <div class="navbar-header">
-                    <a class="navbar-brand">Tech Chefs</a>&emsp;&emsp;&emsp;
-                    <a class="color_animation" style="padding-left: 15em" routerLink="/home" routerLinkActive="active">WELCOME</a>&emsp;&emsp;&emsp;
-                    <a class="color_animation indent" href="#story">ABOUT</a>&emsp;&emsp;&emsp;
-
-                    <a class="color_animation indent" routerLink="/entrees" routerLinkActive="active">MENU&ORDER</a>&emsp;&emsp;&emsp;
-
-                    <a class="color_animation indent" href="#reservation">RESERVATION</a>&emsp;&emsp;&emsp;
-
-                    <a class="color_animation indent" href="#contact">CONTACT</a>&emsp;&emsp;&emsp;
-                    <a class="color_animation indent" routerLink="/place-order" routerLinkActive="active">
-                        <span class="glyphicon glyphicon-shopping-cart"></span> CART</a>
-                </div>
-            </div>
-        </div>
-    </nav>
-
+<body >
+    
     <div id="beef">
         <p class="category">Beef Entrees</p>
 
@@ -43,12 +16,13 @@
                     <div *ngFor="let item of menuObservable | async">
                         <div *ngIf="isBeefEntree(item.Type)" style="padding-bottom:10px">
                             <li>
-                                <p class="entree-name">{{item.Name}}</p>
-                                <p class="desc-text indent">Price: ${{item.Price}}</p>
-                                <p class="desc-text indent">
+                                <p class="entree-name white">{{item.Name}}</p>
+                                <p class="desc-text indent white">Price: ${{item.Price}}</p>
+                                <p class="desc-text indent white">
                                     {{item.Description}}
                                 </p>
-                                &emsp;&emsp;<button mat-button class="mx-auto butt-text" (click)="add(item.Name)">Add to Cart</button>
+                                &emsp;&emsp;
+                                <button mat-button class="mx-auto butt-text white color_animation" (click)="both(item.Name)">Add to Cart</button>
                             </li>
                             <p></p>
                         </div>
@@ -72,14 +46,15 @@
                 </div>
                 <div class="col-md-6">
                     <div *ngFor="let item of menuObservable | async">
-                        <div *ngIf="isChickenEntree(item.Type)"  style="padding-bottom:10px">
+                        <div *ngIf="isChickenEntree(item.Type)" style="padding-bottom:10px">
                             <li>
-                                <p class="entree-name">{{item.Name}}</p>
-                                <p class="desc-text indent">Price: ${{item.Price}}</p>
-                                <p class="desc-text indent">
+                                <p class="entree-name white">{{item.Name}}</p>
+                                <p class="desc-text indent white">Price: ${{item.Price}}</p>
+                                <p class="desc-text indent white">
                                     {{item.Description}}
                                 </p>
-                                &emsp;&emsp;<button mat-button class="butt-text" (click)="add(item.Name)">Add to Cart</button>
+                                &emsp;&emsp;
+                                <button mat-button class="butt-text white color_animation" (click)="both(item.Name)">Add to Cart</button>
 
                             </li>
 
@@ -104,14 +79,15 @@
                 </div>
                 <div class="col-md-6">
                     <div *ngFor="let item of menuObservable | async">
-                        <div *ngIf="isFishEntree(item.Type)"  style="padding-bottom:10px">
+                        <div *ngIf="isFishEntree(item.Type)" style="padding-bottom:10px">
                             <li>
-                                <p class="entree-name">{{item.Name}}</p>
-                                <p class="desc-text indent">Price: ${{item.Price}}</p>
-                                <p class="desc-text indent">
+                                <p class="entree-name white">{{item.Name}}</p>
+                                <p class="desc-text indent white">Price: ${{item.Price}}</p>
+                                <p class="desc-text indent white">
                                     {{item.Description}}
                                 </p>
-                                &emsp;&emsp;<button mat-button class="butt-text" (click)="add(item.Name)">Add to Cart</button>
+                                &emsp;&emsp;
+                                <button mat-button class="butt-text white color_animation" (click)="both(item.Name)">Add to Cart</button>
 
                             </li>
 
@@ -122,23 +98,4 @@
             </div>
         </div>
     </div>
-    <footer class="sub_footer">
-        <div class="container">
-            <div class="col-md-4">
-                <p class="sub-footer-text text-center">&copy; Restaurant 2018, Theme by TechChefs</p>
-            </div>
-            <div class="col-md-4">
-                <p class="sub-footer-text text-center">Back to
-                    <a href="#top">TOP</a>
-                </p>
-            </div>
-            <div class="col-md-4">
-                <p class="sub-footer-text text-center">Built With Care By
-                    <a href="#" target="_blank">Us</a>
-                </p>
-            </div>
-        </div>
-    </footer>
 </body>
-
-</html>

@@ -1,71 +1,66 @@
-<html lang="en">
+<!-- Display ordered items and post order button -->
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Chicle|Open+Sans" rel="stylesheet">
 </head>
 
-<body>
-  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container">
-      <div class="row">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-          <a class="navbar-brand">Tech Chefs</a>&emsp;&emsp;&emsp;
-          <a class="color_animation" style="padding-left: 15em" routerLink="/home" routerLinkActive="active">WELCOME</a>&emsp;&emsp;&emsp;
-          <a class="color_animation indent" href="#story">ABOUT</a>&emsp;&emsp;&emsp;
 
-          <a class="color_animation indent" routerLink="/entrees" routerLinkActive="active">MENU&ORDER</a>&emsp;&emsp;&emsp;
+<body class="page">
+  <p class="category">Let's Review Your Order</p>
 
-          <a class="color_animation indent" href="#reservation">RESERVATION</a>&emsp;&emsp;&emsp;
-
-          <a class="color_animation indent" href="#contact">CONTACT</a>&emsp;&emsp;&emsp;
-          <a class="color_animation indent" routerLink="/place-order" routerLinkActive="active">
-            <span class="glyphicon glyphicon-shopping-cart"></span> CART</a>
-        </div>
+  <div class="table-responsive">
+    <table class="table">
+      <thead>
+        <tr class="header">
+          <th>Menu Item</th>
+          <th>Quantity</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of cart" class="table_content">
+          <td>{{item}}</td>
+          <td>
+            <button (click)="add(item)">+</button>&nbsp;&nbsp;{{getQuantity(item)}}&nbsp;&nbsp;
+            <button (click)="remove(item)">-</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="table_content nuance">
+      <mat-form-field>
+        <input matInput [(ngModel)]="table" placeholder="Table Number" type="number" />
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput [(ngModel)]="numGuests" placeholder="Number of Guests" type="number" />
+      </mat-form-field>
+      <button mat-raised-button *ngIf="isValidInput()" (click)="pushOrder()" routerLink="/dashboard/confirm">Place Order</button>
+      <button mat-raised-button *ngIf="!isValidInput()" disabled style="color:grey">Place Order</button>
+    </div>
+    <div *ngIf="!cart.length">
+      You have no items selected. Take a look at our menu and make a selection!
+      <div>
+        <button mat-button routerLink="/dashboard/entrees">Menu</button>
       </div>
-    </div>
-  </nav>
-  <!--Display ordered items and post order button-->
-  <div *ngIf ="cart.length">
-    <li *ngFor="let item of cart">
-      {{item}} {{getQuantity(item)}}
-      <button (click) = "add(item)">+</button>
-      <button (click) = "remove(item)">-</button>
-    </li>
-    <div>
-      <input [(ngModel)]="table" placeholder="Table Number" type="number"/>
-    </div>
-    <div>
-      <input [(ngModel)]="numGuests" placeholder="Number of Guests" type="number"/>
-    </div>
-    <button *ngIf="isValidInput()" (click) = "pushOrder()" routerLink="/confirm">Place Order</button>
-    <button *ngIf="!isValidInput()" disabled style="color:grey">Place Order</button>
-  </div>
-  <div *ngIf ="!cart.length">
-    You have no items selected. Take a look at our menu and make a selection!
-    <div>
-      <button mat-button routerLink = "/entrees">Menu</button>
     </div>
   </div>
-  <!---->
-  <footer class="sub_footer">
-    <div class="container">
-      <div class="col-md-4">
-        <p class="sub-footer-text text-center">&copy; Restaurant 2018, Theme by TechChefs</p>
-      </div>
-      <div class="col-md-4">
-        <p class="sub-footer-text text-center">Back to
-          <a href="#top">TOP</a>
-        </p>
-      </div>
-      <div class="col-md-4">
-        <p class="sub-footer-text text-center">Built With Care By
-          <a href="#" target="_blank">Us</a>
-        </p>
-      </div>
-    </div>
-  </footer>
 </body>
-
-</html>
+<!-- <li *ngFor="let item of cart">
+    {{item}} 
+    <button (click)="add(item)">+</button>
+    {{getQuantity(item)}}
+    <button (click)="remove(item)">-</button>
+  </li>
+  <div>
+    <input [(ngModel)]="table" placeholder="Table Number" type="number" />
+  </div>
+  <div>
+    <input [(ngModel)]="numGuests" placeholder="Number of Guests" type="number" />
+  </div>
+  <button *ngIf="isValidInput()" (click)="pushOrder()" routerLink="/confirm">Place Order</button>
+  <button *ngIf="!isValidInput()" disabled style="color:grey">Place Order</button>
+</div>
+<div *ngIf="!cart.length">
+  You have no items selected. Take a look at our menu and make a selection!
+  <div>
+    <button mat-button routerLink="/entrees">Menu</button>
+  </div> -->

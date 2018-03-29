@@ -62,6 +62,8 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './cust-components/home/home.component';
 import { PlaceOrderComponent } from './cust-components/place-order/place-order.component';
 import { ConfirmComponent } from './cust-components/confirm/confirm.component';
+import { CustDashboardComponent } from './cust-components/cust-dashboard/cust-dashboard.component';
+import { CartComponent } from './cust-components/cart/cart.component';
 
 
 @NgModule({
@@ -77,6 +79,8 @@ import { ConfirmComponent } from './cust-components/confirm/confirm.component';
     HomeComponent,
     PlaceOrderComponent,
     ConfirmComponent,
+    CustDashboardComponent,
+    CartComponent,
   ],
   imports: [
     BrowserAnimationsModule,

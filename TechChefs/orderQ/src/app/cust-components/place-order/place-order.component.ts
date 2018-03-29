@@ -61,6 +61,8 @@ export class PlaceOrderComponent implements OnInit {
       this.db.list('/Orders').push(order);
       this.cookieService.deleteAll();
   }
+  
+  
 
   ngOnInit(): void{
     this.cart = new Array<String>();
