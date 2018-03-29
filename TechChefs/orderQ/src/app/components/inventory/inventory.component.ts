@@ -36,12 +36,23 @@ export class InventoryComponent {
     this.inventory.addInv(this.InvDetails);
   }
 
+
 delete(item){
-  this.inventory.deleteInv(item);
+  var retVal = confirm("Do you want to continue ?");
+             if( retVal == true ){
+                  this.inventory.deleteInv(item);
+                return true;
+             }
+             else{
+
+                return false;
+             }
+
 }
 edit(key,newText){
   this.inventory.editInv(key,newText);
 }
+
 }
 
 export class InvDataSource extends DataSource<any> {
