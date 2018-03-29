@@ -11,12 +11,12 @@ export class EmployeeService{
   }
 
   addEmp(EmployeeData){
-    this.afs.collection('employee').add(EmployeeData).then(()=>{
+    this.afs.collection('/Employee').add(EmployeeData).then(()=>{
       console.log('Done');
     })
   }
 
   getEmp(){
-    return this.afs.collection('employee', ref => ref.orderBy('Name')).valueChanges();
+    return this.afs.collection('/Employee', ref => ref.orderBy('Name')).valueChanges();
   }
 }

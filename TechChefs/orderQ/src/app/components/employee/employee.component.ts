@@ -1,12 +1,11 @@
-import {Injectable, Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AngularFireDatabase} from 'angularfire2/database';
 import { Observable } from 'rxjs/Observable';
 import { AngularFirestore } from 'angularfire2/firestore';
 import { DataSource } from '@angular/cdk/collections';
 import { EmployeeService } from './employee.service'
 import * as $ from 'jquery';
-import * as firebase from 'firebase';
-
+import 'rxjs/add/operator/map';
 @Component({
   selector:'app-employee',
   templateUrl: './employee.component.html',
@@ -20,10 +19,11 @@ export class EmployeeComponent {
       Name: '',
       Shift: '',
       Shift_L: '',
-      Wage: ''
+      Wage: '',
+      Position:''
     }
-    displayedColumns =['ID', 'Name','Shift_L','Wage'];
-    DataSource = new EmpDataSource(this.employee);
+    displayedColumns =['ID', 'Name','Shift_L','Wage','Position'];
+    dataSource = new EmpDataSource(this.employee);
 
     constructor(private employee: EmployeeService, private afs: AngularFirestore){
 
