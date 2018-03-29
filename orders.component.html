@@ -1,0 +1,71 @@
+<html lang="en" style="background-Color: black">
+<head>
+<style>
+* {
+    box-sizing: border-box;
+}
+/* Create three equal columns that floats next to each other */
+.column {
+    float: left;
+    width: 25%;
+    padding: 10px;
+    height: 90%;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+</style>
+</head>
+<body class="bg-dark">
+<button (click)= "logout()" class= "btn-lg btn-primary">Logout</button>
+<div class = "container">
+<h1 class = "page-header text-white"> Order Queue</h1>
+</div>
+<div class = "container">
+<form (submit)= "searchOrder(tNum.value)" *ngIf=isSearch>
+	<label for="search" class="text-white">Search Order: </label>
+	<input type="number" class="form-control" placeholder="table number..." #tNum>
+</form>
+</div>
+<div class = "container">
+<div class="row">
+	<div id = "ticket0" src onerror = 'initTime()' class="column" style="background-color:white" *ngFor="let Orders of ordObservable | async">
+		<h2><u>Table: {{Orders.table}}</u></h2>
+		<ul class = "list-unstyled">
+			<li><h4>Guests:  {{Orders.guests}}</h4></li>
+        <ul class= "list-unstyled">
+          <li *ngIf = "Orders.items[0]"><h5>Dish: {{Orders.items[0].name}} </h5><h6> Amount: {{Orders.items[0].quantity}}</h6></li>
+          <li *ngIf = "Orders.items[1]"><h5>Dish: {{Orders.items[1].name}} </h5><h6> Amount: {{Orders.items[1].quantity}}</h6></li>
+          <li *ngIf = "Orders.items[2]"><h5>Dish: {{Orders.items[2].name}} </h5><h6> Amount: {{Orders.items[2].quantity}}</h6></li>
+          <li *ngIf = "Orders.items[3]"><h5>Dish: {{Orders.items[3].name}} </h5><h6> Amount: {{Orders.items[3].quantity}}</h6></li>
+          <li *ngIf = "Orders.items[4]"><h5>Dish: {{Orders.items[4].name}} </h5><h6> Amount: {{Orders.items[4].quantity}}</h6></li>
+          <li *ngIf = "Orders.items[5]"><h5>Dish: {{Orders.items[5].name}} </h5><h6> Amount: {{Orders.items[5].quantity}}</h6></li>
+          <li *ngIf = "Orders.items[6]"><h5>Dish: {{Orders.items[6].name}} </h5><h6> Amount: {{Orders.items[6].quantity}}</h6></li>
+          <li *ngIf = "Orders.items[7]"><h5>Dish: {{Orders.items[7].name}} </h5><h6> Amount: {{Orders.items[7].quantity}}</h6></li>
+          <li *ngIf = "Orders.items[8]"><h5>Dish: {{Orders.items[8].name}} </h5><h6> Amount: {{Orders.items[8].quantity}}</h6></li>
+          <li *ngIf = "Orders.items[9]"><h5>Dish: {{Orders.items[9].name}} </h5><h6> Amount: {{Orders.items[9].quantity}}</h6></li>
+				</ul>
+            <li><h4>Time: <span class="clock">{{Orders.timestamp}}</span></h4></li>
+            <button id ="delete"(click)= "deleteOrder(Orders.key)" class ="btn btn-danger">Delete Order</button>
+		</ul>
+	</div>
+</div>
+</div>
+<div class="container" style="postion:relative; margin-top: 0%;">
+	<button id = "C1" (click) = "clearOrder1()" class ="btn btn-success"> Clear First Order</button>
+	<button id ="C2"(click)= "clearOrder2()" class ="btn btn-success">Clear Second Order</button>
+	<button id ="C3"(click)= "clearOrder3()" class ="btn btn-success">Clear Third Order</button>
+	<button id = "orderRdy"(click)="orderReady()" class ="btn btn-success"> Order Ready</button>
+	<button id = "viewInv"(click)= "viewInv()" class ="btn btn-warning"> View Inventory</button>
+	<button id ="search"(click)= "toggSearch()" class ="btn btn-warning">Search for Order</button>
+	
+	<button id ="86"(click)= "editMenu()" class ="btn btn-danger" > Edit Menu</button>
+	<button id ="reqMan"(click)= "reqMan()" class ="btn btn-danger"> Request Manager</button>
+</div>
+</body>
+</html>
