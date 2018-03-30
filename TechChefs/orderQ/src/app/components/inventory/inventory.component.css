@@ -1886,7 +1886,7 @@ select option {
   height: 100%;
   display: block;
   z-index: -1;
-  background: url(../../../assets/images/bg.jpg);
+  background: url(../../../assets/images/bkg.jpg);
   background-size: cover;
   -webkit-filter: blur(10px);
   filter: blur(10px);
