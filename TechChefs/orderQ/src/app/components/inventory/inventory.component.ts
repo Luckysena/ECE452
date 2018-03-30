@@ -28,7 +28,7 @@ export class InventoryComponent {
   displayedColumns = ['Name', 'Quantity', 'Unit','PricePer','delete','edit'];
   dataSource = new InvDataSource(this.inventory);
 
-  constructor(private inventory: InvServiceService, private afs: AngularFirestore) {
+  constructor(public inventory: InvServiceService, private afs: AngularFirestore) {
 
   }
 
@@ -57,7 +57,7 @@ edit(key,newText){
 
 export class InvDataSource extends DataSource<any> {
 
-  constructor(private inventory: InvServiceService) {
+  constructor(public inventory: InvServiceService) {
   super();
   }
 

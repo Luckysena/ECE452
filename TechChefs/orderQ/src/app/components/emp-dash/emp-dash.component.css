@@ -3340,8 +3340,8 @@ a > code {
   }
 }
 .col-centered{
-    float: none;
-    margin: 10px auto;
+    float: left;
+    margin: 10px 30px;
 
 }
 /* Style buttons */

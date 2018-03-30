@@ -1,11 +1,12 @@
-import { Component, OnInit } from '@angular/core';
-import { AngularFireDatabase} from 'angularfire2/database';
-import { Observable } from 'rxjs/Observable';
-import { AngularFirestore } from 'angularfire2/firestore';
-import { DataSource } from '@angular/cdk/collections';
-import { EmployeeService } from './employee.service'
-import * as $ from 'jquery';
-import 'rxjs/add/operator/map';
+ import { Component, OnInit } from '@angular/core';
+ import { AngularFireDatabase} from 'angularfire2/database';
+ import { Observable } from 'rxjs/Observable';
+  import { AngularFirestore } from 'angularfire2/firestore';
+ import { DataSource } from '@angular/cdk/collections';
+ import { EmployeeService } from './employee.service';
+// import * as $ from 'jquery';
+ import 'rxjs/add/operator/map';
+ // import { employee } from './employee';
 @Component({
   selector:'app-employee',
   templateUrl: './employee.component.html',
@@ -25,7 +26,7 @@ export class EmployeeComponent {
     displayedColumns =['ID', 'Name','Shift_L','Wage','Position'];
     dataSource = new EmpDataSource(this.employee);
 
-    constructor(private employee: EmployeeService, private afs: AngularFirestore){
+    constructor(public employee: EmployeeService, private afs: AngularFirestore){
 
     }
     addEmp(){
@@ -36,7 +37,7 @@ export class EmployeeComponent {
 
 export class EmpDataSource extends DataSource <any>{
 
-  constructor (private employee: EmployeeService){
+  constructor (public employee: EmployeeService){
     super();
   }
 
@@ -80,60 +81,103 @@ $('#clear_button').click(function(){
   $('#Name').val('');
 });
 */
+//
+//
+// /*
+//            +hhhho.                      `/yhhhy.
+//           sd////ohy-                  `ods+//:sm`
+//          .N++.`-/+ody.              `+ds+:.``+:do
+//          +m/:````-++sm+            -hh+/.````/:sd
+//          yho......./oody://++++//:/mso:......-++M`
+//          dyo...--.../o+yssssossssyyso:..---...o/M-
+//          myo..--::://o++//////++++++o+//::--..o/N-
+//          dyo..-/++++/////////////////+++oo/-..s+M-
+//          hhs-/++////////:::::///////////+++o/:ssM`
+//          om+++////:-----:::::::-.....:////+++ooym
+//         -hh+/////-`     `.:::-`       .////++++ym/
+//        +ds+/////: `:://`  `-`   -://.  :////++++sds`                       ``...``
+//       sdo////:::- :mosN/       `dssNy  .---::/++oohh.                 .:+ossooooosso/.`-.
+//      /Ns+/:.````   :o+:`        -oo:`        `.:+oymy              `:ss+-.`       `-/shdyo`
+//      :md+.                                      :ohNo             :ys-                .:`sh`
+//      `Ns/`             .-::::.                  .osN:            +h-         ```````     `ds:
+//      `ddy:`        `` -mmysddh    `            `:ydm-           oh.        `..........``  /sm:
+//       `-hh/`       --`.hmmdmd+`` `/           .+hm:.           :m.       `..--::::::---..```ho
+//         `+ds-`     `/:-:+syo:-.`:/.        `./sydho:..```     `d+        `.-:////////::--.``m+
+//           .sho.      .oo+os++s+-.        `-/ossooosyhhhhyyyssssN`       `.-:/++oosyso//:--./Ny`
+//             -ym+.     :o:-::/s`       `.:+++o++ooooooooooosssssh         .-:/+oshsooo+//:--:om`
+//              `No/-     :/+++/.      `-/+++++++++++oooooooooooooh.        `.-/+ohoo+++++/::-+m-
+//               hy::-                .////+++++++++++ooooooooooooss`        `.-:oho++++++/:/yh.
+//               sh:::`              -//////++++++++++++oooooooooooss.         `.-yo+++o//ohy:
+//               od:::.              :////////++++++++++++ooooooooooos+`         `.os++ohN+.
+//               od:::.              ./////////+++++++++++++++oooooooooso:+/.      -+ho++ds
+//               yh:::`               ./////////+++++++++++++++++++++++++oo+ss+/:--/h++++:m/
+//               dy::`                 .//////////+++++++++++++++++++++++++++++++++++++//:oh
+//               mo::                   -///////////+++++++++++++++++++++++++++++++++////:+d
+//               ds::.                  .//////////////+++++++++++++++++++++++++++///////:oh
+//               sd:::`                 .::////////////////++++++y+++++++++++++//////////-sy
+//               .N+:::`                -::::////////////////:--:so++++++////////////////.ys
+//                sd/::-                -:::::///+///////:-..:++//y//////////////////////`ho
+//                `mo:::`               .:::::::/o///:-.``-o+/::::++:///////////////////- ys
+//                 /m/::`            `   ::::::::s..`` `:shm:::::::o/.:///////////////:-  +d
+//                  hy::.  ``        :   -:::::::s  `-oyo-`ds:::::::+/``-::////////::-`   .N-
+//                  -N+:.  `.:-.     /`  `::::::/y:oso:`   .ds:::::::/+:.```.......``      /d:
+//                   dh:.    `-:os+/://   ::::::/No-`       .sh+:::::::://:-`               -d/
+//                   +N/.     `.+N://hy   .:::::+N`           -sho:--------:/o+-`            :N`
+//                   `Ny.      `:N`  /m    :::::sm              .oho:--------dyoso/.`        `N:
+//                    ym`       :N`  -N`   .::::hy                .yh-------:N.  ./sy/        d/
+//                    :N.       :N   .N.    -::/m+                 yy----...sh      -N`       d/
+//                    `m/       /m   `N-     .-:N.                +m:......:m-      -N`       m/
+//                     h+       oh   `N-       +d                :m:.......hs       /m       `N-
+//                     yo       ys   .N.       do               /d/.......od`       ys       -N`
+//                     ho       d/   -N`      -N.              +d:......./m-       .N-       +d
+//                     d+      .N.   /d       sy             `sd-.......+d-        yy        d+
+//                    `N-      /m    ys      `N:             .hyyyyyyyssy.        :m.       :m`
+//                    /m`      ys   `m:      oh                                  .m:       `d+
+//                    odssoossyh-   -N.    `-m:                                  smoo+++ooshy
+//                       `.``       `+syyyys+:                                    `..---..`
+//
+//
+// */
 
 
-/*
-           +hhhho.                      `/yhhhy.
-          sd////ohy-                  `ods+//:sm`
-         .N++.`-/+ody.              `+ds+:.``+:do
-         +m/:````-++sm+            -hh+/.````/:sd
-         yho......./oody://++++//:/mso:......-++M`
-         dyo...--.../o+yssssossssyyso:..---...o/M-
-         myo..--::://o++//////++++++o+//::--..o/N-
-         dyo..-/++++/////////////////+++oo/-..s+M-
-         hhs-/++////////:::::///////////+++o/:ssM`
-         om+++////:-----:::::::-.....:////+++ooym
-        -hh+/////-`     `.:::-`       .////++++ym/
-       +ds+/////: `:://`  `-`   -://.  :////++++sds`                       ``...``
-      sdo////:::- :mosN/       `dssNy  .---::/++oohh.                 .:+ossooooosso/.`-.
-     /Ns+/:.````   :o+:`        -oo:`        `.:+oymy              `:ss+-.`       `-/shdyo`
-     :md+.                                      :ohNo             :ys-                .:`sh`
-     `Ns/`             .-::::.                  .osN:            +h-         ```````     `ds:
-     `ddy:`        `` -mmysddh    `            `:ydm-           oh.        `..........``  /sm:
-      `-hh/`       --`.hmmdmd+`` `/           .+hm:.           :m.       `..--::::::---..```ho
-        `+ds-`     `/:-:+syo:-.`:/.        `./sydho:..```     `d+        `.-:////////::--.``m+
-          .sho.      .oo+os++s+-.        `-/ossooosyhhhhyyyssssN`       `.-:/++oosyso//:--./Ny`
-            -ym+.     :o:-::/s`       `.:+++o++ooooooooooosssssh         .-:/+oshsooo+//:--:om`
-             `No/-     :/+++/.      `-/+++++++++++oooooooooooooh.        `.-/+ohoo+++++/::-+m-
-              hy::-                .////+++++++++++ooooooooooooss`        `.-:oho++++++/:/yh.
-              sh:::`              -//////++++++++++++oooooooooooss.         `.-yo+++o//ohy:
-              od:::.              :////////++++++++++++ooooooooooos+`         `.os++ohN+.
-              od:::.              ./////////+++++++++++++++oooooooooso:+/.      -+ho++ds
-              yh:::`               ./////////+++++++++++++++++++++++++oo+ss+/:--/h++++:m/
-              dy::`                 .//////////+++++++++++++++++++++++++++++++++++++//:oh
-              mo::                   -///////////+++++++++++++++++++++++++++++++++////:+d
-              ds::.                  .//////////////+++++++++++++++++++++++++++///////:oh
-              sd:::`                 .::////////////////++++++y+++++++++++++//////////-sy
-              .N+:::`                -::::////////////////:--:so++++++////////////////.ys
-               sd/::-                -:::::///+///////:-..:++//y//////////////////////`ho
-               `mo:::`               .:::::::/o///:-.``-o+/::::++:///////////////////- ys
-                /m/::`            `   ::::::::s..`` `:shm:::::::o/.:///////////////:-  +d
-                 hy::.  ``        :   -:::::::s  `-oyo-`ds:::::::+/``-::////////::-`   .N-
-                 -N+:.  `.:-.     /`  `::::::/y:oso:`   .ds:::::::/+:.```.......``      /d:
-                  dh:.    `-:os+/://   ::::::/No-`       .sh+:::::::://:-`               -d/
-                  +N/.     `.+N://hy   .:::::+N`           -sho:--------:/o+-`            :N`
-                  `Ny.      `:N`  /m    :::::sm              .oho:--------dyoso/.`        `N:
-                   ym`       :N`  -N`   .::::hy                .yh-------:N.  ./sy/        d/
-                   :N.       :N   .N.    -::/m+                 yy----...sh      -N`       d/
-                   `m/       /m   `N-     .-:N.                +m:......:m-      -N`       m/
-                    h+       oh   `N-       +d                :m:.......hs       /m       `N-
-                    yo       ys   .N.       do               /d/.......od`       ys       -N`
-                    ho       d/   -N`      -N.              +d:......./m-       .N-       +d
-                    d+      .N.   /d       sy             `sd-.......+d-        yy        d+
-                   `N-      /m    ys      `N:             .hyyyyyyyssy.        :m.       :m`
-                   /m`      ys   `m:      oh                                  .m:       `d+
-                   odssoossyh-   -N.    `-m:                                  smoo+++ooshy
-                      `.``       `+syyyys+:                                    `..---..`
 
-
-*/
+// @Component({
+//   selector: 'app-items',
+//   templateUrl: './items.component.html',
+//   styleUrls: ['./items.component.css']
+// })
+// export class EmployeeComponent implements OnInit {
+//   items: employee[];
+//   editState: boolean = false;
+//   itemToEdit: employee;
+//
+//   constructor(private EmployeeService: EmployeeService) { }
+//
+//   ngOnInit() {
+//     this.EmployeeService.getItems().subscribe(items => {
+//       //console.log(items);
+//       this.items = items;
+//     });
+//   }
+//
+//   deleteItem(event, item: employee){
+//     this.clearState();
+//     this.EmployeeService.deleteItem(item);
+//   }
+//
+//   editItem(event, item: employee){
+//     this.editState = true;
+//     this.itemToEdit = item;
+//   }
+//
+//   updateItem(item: employee){
+//     this.EmployeeService.updateItem(item);
+//     this.clearState();
+//   }
+//
+//   clearState(){
+//     this.editState = false;
+//     this.itemToEdit = null;
+//   }
+//
+// }
