@@ -65,6 +65,8 @@ import { PlaceOrderComponent } from './cust-components/place-order/place-order.c
 import { ConfirmComponent } from './cust-components/confirm/confirm.component';
 import { CustDashboardComponent } from './cust-components/cust-dashboard/cust-dashboard.component';
 import { CartComponent } from './cust-components/cart/cart.component';
+import { EmpDashComponent } from './components/emp-dash/emp-dash.component';
+import { RegisterComponent } from './register/register.component';
 
 
 @NgModule({
@@ -82,7 +84,10 @@ import { CartComponent } from './cust-components/cart/cart.component';
     ConfirmComponent,
     CustDashboardComponent,
     CartComponent,
-    EmployeeComponent
+    EmployeeComponent,
+    EmpDashComponent,
+    RegisterComponent,
+
   ],
   imports: [
     BrowserAnimationsModule,
