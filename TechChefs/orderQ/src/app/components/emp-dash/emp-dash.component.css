@@ -3365,3 +3365,10 @@ a > code {
   min-width: 300px;
 
 }
+
+.calendar{
+  border: 0;
+  width: 80%;
+  height: 400px
+  
+}
