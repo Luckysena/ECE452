@@ -129,6 +129,9 @@ import { RegisterComponent } from './register/register.component';
     AngularFireAuthModule,
     AngularFirestoreModule
   ],
+  entryComponents: [
+    CartComponent
+  ],
   providers: [DataService, CookieService, DatePipe, InvServiceService, EmployeeService],
   bootstrap: [AppComponent]
 })
