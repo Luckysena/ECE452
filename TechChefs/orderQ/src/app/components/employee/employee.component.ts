@@ -18,12 +18,12 @@ export class EmployeeComponent {
     EmpDetails ={
       ID: '',
       Name: '',
-      Shift: '',
-      Shift_L: '',
+      email:'',
+      Phone:'',
       Wage: '',
       Position:''
     }
-    displayedColumns =['ID', 'Name','Shift_L','Wage','Position'];
+    displayedColumns =[ 'Name','ID','Position','Wage','email','Phone'];
     dataSource = new EmpDataSource(this.employee);
 
     constructor(public employee: EmployeeService, private afs: AngularFirestore){

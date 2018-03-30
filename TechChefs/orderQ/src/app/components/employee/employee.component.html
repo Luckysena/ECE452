@@ -3,76 +3,177 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
-  <body>
+<body>
+<div class="page">
+      <!-- Main Navbar-->
+      <header class="header">
+        <nav class="navbar">
+          <!-- Search Box-->
+          <div class="search-box">
+            <button class="dismiss"><i class="icon-close"></i></button>
+            <form id="searchForm" action="#" role="search">
+              <input type="search" placeholder="What are you looking for..." class="form-control">
+            </form>
+          </div>
+          <div class="container-fluid">
+            <div class="navbar-holder d-flex align-items-center justify-content-between">
+              <!-- Navbar Header-->
+              <div class="navbar-header">
+                <!-- Navbar Brand --><a href="../empDash" class="navbar-brand">
+                  <div class="brand-text brand-big"><span>Manager </span><strong>Dashboard</strong></div>
+                  <div class="brand-text brand-small"><strong>MD</strong></div></a>
+                <!-- Toggle Button--><a id="toggle-btn" href="../empDash" class="menu-btn active"><span></span><span></span><span></span></a>
+              </div>
+              <!-- Navbar Menu -->
+              <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center">
+                <!-- Search-->
+                <!-- <li class="nav-item d-flex align-items-center"><a id="search" href="#"><i class="icon-search"></i></a></li> -->
+                <!-- Logout    -->
+                <li class="nav-item"><a href="../login" class="nav-link logout">Logout<i class="fa fa-sign-out"></i></a></li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </header>
+      <div class="page-content d-flex align-items-stretch">
+        <!-- Side Navbar -->
+        <nav class="side-navbar">
+          <!-- Sidebar Header-->
+          <div class="sidebar-header d-flex align-items-center">
+            <div class="avatar"><img src="../../../assets/images/Ivan.png" class="img-fluid rounded-circle"></div>
+            <div class="title">
+              <h1 class="h4">Ivan Marsic</h1>
+              <p>Manager</p>
+            </div>
+          </div>
 
-    <div>
-      <mat-form-field>
-        <input matInput placeholder="ID" [(ngModel)]="EmpDetails.ID">
-      </mat-form-field>
-      <mat-form-field>
-        <input matInput placeholder="Name" [(ngModel)]="EmpDetails.Name">
-      </mat-form-field>
-    <!--  <mat-form-field>
-        <input matInput placeholder="Shift" [(ngModel)]="EmpDetails.Shift_L">
-      </mat-form-field>
-    -->
-      <mat-form-field>
-        <input matInput placeholder="Shift_L" [(ngModel)]="EmpDetails.Shift_L">
-      </mat-form-field>
-      <mat-form-field>
-        <input matInput placeholder="Wage" [(ngModel)]="EmpDetails.Wage">
-      </mat-form-field>
-      <button mat-raised-button (click)="addEmp()" color="primary">Add</button>
+          <ul class="list-unstyled">
+                    <li class="active"><a href="employee.html" > <i class="icon-home"></i>Employee Schedule </a></li>
+                    <li><a href="../inventory"> <i class="icon-grid"></i>Inventory</a></li>
+                    <li><a href="charts.html"> <i class="fa fa-bar-chart"></i>Revenue Graph </a></li>
+          </ul>
+        </nav>
+        <div class="content-inner">
+          <!-- Page Header-->
+          <header class="page-header">
+            <div class="container-fluid">
+
+            </div>
+          </header>
+          <!-- Breadcrumb-->
+          <div class="breadcrumb-holder container-fluid">
+            <!-- <ul class="breadcrumb">
+              <li class="breadcrumb-item active">Tables</li>
+            </ul> -->
+          </div>
+          <section class="tables">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-lg-12">
+                  <!-- <div class="card"> -->
+                    <div class="card-close">
+                      <div class="dropdown">
+                        <button type="button" id="closeCard3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-ellipsis-v"></i></button>
+                        <div aria-labelledby="closeCard3" class="dropdown-menu dropdown-menu-right has-shadow"><a href="#" class="dropdown-item remove"> <i class="fa fa-times"></i>Close</a><a href="#" class="dropdown-item edit"> <i class="fa fa-gear"></i>Edit</a></div>
+                      </div>
+                    </div>
+                    <div class="card-header d-flex align-items-center">
+                      <h3 class="h4">Employee Portal</h3>
+                    </div>
+                    <mat-card>
+
+
+                        <mat-table #table [dataSource]="dataSource">
+
+                          <ng-container matColumnDef="Name">
+                            <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+                            <mat-cell *matCellDef="let element"> {{element.Name}} </mat-cell>
+                          </ng-container>
+
+
+
+                          <ng-container matColumnDef="Position">
+                            <mat-header-cell *matHeaderCellDef> Position</mat-header-cell>
+                            <mat-cell *matCellDef="let element"> {{element.Position}} </mat-cell>
+                          </ng-container>
+                          <ng-container matColumnDef="ID">
+                            <mat-header-cell *matHeaderCellDef> ID</mat-header-cell>
+                            <mat-cell *matCellDef="let element"> {{element.ID}} </mat-cell>
+                          </ng-container>
+
+                          <ng-container matColumnDef="Wage">
+                            <mat-header-cell *matHeaderCellDef> Wage</mat-header-cell>
+                            <mat-cell *matCellDef="let element"> {{element.Wage}} </mat-cell>
+                          </ng-container>
+                          <ng-container matColumnDef="email">
+                            <mat-header-cell *matHeaderCellDef> email</mat-header-cell>
+                            <mat-cell *matCellDef="let element"> {{element.email}} </mat-cell>
+                          </ng-container>
+                          <ng-container matColumnDef="Phone">
+                            <mat-header-cell *matHeaderCellDef> Phone Number</mat-header-cell>
+                            <mat-cell *matCellDef="let element"> {{element.Phone}} </mat-cell>
+                          </ng-container>
+                          <!-- <ng-container matColumnDef="delete">
+                            <mat-header-cell *matHeaderCellDef></mat-header-cell>
+                            <mat-cell *matCellDef="let element">
+                              <button mat-raised-button (click)="delete(element)" color="primary">delete</button>
+                            </mat-cell>
+                          </ng-container> -->
+                          <!-- <ng-container matColumnDef="edit">
+                            <mat-header-cell *matHeaderCellDef></mat-header-cell>
+                            <mat-cell *matCellDef="let element">
+
+                            </mat-cell>
+                          </ng-container> -->
+                          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                          <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+                        </mat-table>
+
+                    </mat-card>
+                    <!-- <div class="col-sm-6 col-centered">
+                    </div> -->
+                      <!-- <mat-card >
+                        <h3>Add to database</h3>
+                          <mat-form-field><div class="home">
+                            <input matInput placeholder="Name" [(ngModel)]="InvDetails.Name">
+                          </div>
+                          </mat-form-field>
+                          <mat-form-field>
+                            <input matInput placeholder="Quantity" [(ngModel)]="InvDetails.Quantity">
+                          </mat-form-field>
+                          <mat-form-field>
+                            <input matInput placeholder="Unit" [(ngModel)]="InvDetails.Unit">
+                          </mat-form-field>
+                          <mat-form-field>
+                            <input matInput placeholder="Price Per Unit" [(ngModel)]="InvDetails.PricePer">
+                          </mat-form-field>
+                          <mat-form-field>
+                            <input matInput placeholder="minimum" [(ngModel)]="InvDetails.min">
+                          </mat-form-field>
+
+                          <button mat-raised-button (click)="addInv()" color="primary">Add</button>
+
+                    </mat-card> -->
+                  <!-- </div> -->
+                </div>
+              </div>
+            </div>
+          </section>
+          <!-- Page Footer-->
+          <footer class="main-footer">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-sm-6">
+                  <p>Team 2 &copy; 2018</p>
+                </div>
+                <div class="col-sm-6 text-right">
+                  <p>Design for Software Engineering class</p>
+                </div>
+              </div>
+            </div>
+          </footer>
+        </div>
+      </div>
     </div>
-
-
-
-<mat-card>
-    <div class="example-container mat-elevation-z8">
-    <mat-table #table [dataSource]="dataSource">
-      <!--- Note that these columns can be defined in any order.
-            The actual rendered columns are set as a property on the row definition" -->
-
-     <!-- Position Column -->
-     <!--
-      <ng-container matColumnDef="position">
-        <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.position}} </mat-cell>
-      </ng-container>
-    -->
-      <!-- ID Column -->
-      <ng-container matColumnDef="ID">
-        <mat-header-cell *matHeaderCellDef>ID </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.ID}} </mat-cell>
-      </ng-container>
-      <!-- Name Column -->
-      <ng-container matColumnDef="Name">
-        <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.Name}} </mat-cell>
-      </ng-container>
-      <!-- Position Column -->
-      <ng-container matColumnDef="Position">
-        <mat-header-cell *matHeaderCellDef> Position </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.Position}} </mat-cell>
-      </ng-container>
-
-
-      <!-- Weight Column -->
-      <ng-container matColumnDef="Shift_L">
-        <mat-header-cell *matHeaderCellDef> Weight </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.Shift_L}} </mat-cell>
-      </ng-container>
-
-      <!-- Symbol Column -->
-      <ng-container matColumnDef="Wage">
-        <mat-header-cell *matHeaderCellDef> Wage </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.Wage}} </mat-cell>
-      </ng-container>
-
-      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-    </mat-table>
-  </div>
-</mat-card>
-    </body>
+</body>
 </html>
