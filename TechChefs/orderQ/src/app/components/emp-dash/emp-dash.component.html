@@ -33,7 +33,7 @@
               <!-- Search-->
               <!-- <li class="nav-item d-flex align-items-center"><a id="search" href="#"><i class="icon-search"></i></a></li> -->
               <!-- Logout    -->
-              <li class="nav-item"><a href="login.html" class="nav-link logout">Logout<i class="fa fa-sign-out"></i></a></li>
+              <li class="nav-item"><a href="../login" class="nav-link logout">Logout<i class="fa fa-sign-out"></i></a></li>
             </ul>
           </div>
         </div>
@@ -52,8 +52,8 @@
         </div>
 
         <ul class="list-unstyled">
-          <li><a href="../employee"> <i class="icon-home"></i>Employee Schedule </a></li>
-          <li><a href="../inventory"> <i class="icon-grid"></i>Inventory</a></li>
+          <li><a href="../employee"> <i class="fa fa-address-book"></i>Employee Schedule </a></li>
+          <li><a href="../inventory"> <i class="fa fa-archive"></i>Inventory</a></li>
           <li><a href="charts.html"> <i class="fa fa-bar-chart"></i>Revenue Graph </a></li>
         </ul>
       </nav>
@@ -84,10 +84,11 @@
                 <div class="card-header d-flex align-items-center">
                   <h3 class="h4">Summary of your day</h3>
                 </div>
-                <mat-card class="col-sm-4 col-centered">
 
-
-
+                <div class="container" style="margin-top: 15px">
+                <!-- <div class="row top-buffer"> -->
+                <mat-card class="col-md-6 col-centered ">
+                  <h4>Inventory</h4>
                   <mat-table #table [dataSource]="dataSource">
 
                     <ng-container matColumnDef="Name">
@@ -121,64 +122,42 @@
                     <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
                   </mat-table>
 
-
-                  <div class="col-sm-6 col-centered">
-                  </div>
-
                 </mat-card>
-                 <!-- <mat-card class="col-sm-6 col-centered">
-                        <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
-                      </mat-card>
-                      <mat-card class="col-sm-6 col-centered">
-                             <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
-                           </mat-card> -->
+                <mat-card class="col-sm-4 col-centered">
+                  <h4>Employee List</h4>
+                  <mat-table #table [dataSource]="dataEmp">
+
+                    <ng-container matColumnDef="Name">
+                      <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+                      <mat-cell *matCellDef="let element"> {{element.Name}} </mat-cell>
+                    </ng-container>
+
+                    <ng-container matColumnDef="Position">
+                      <mat-header-cell *matHeaderCellDef> Position </mat-header-cell>
+                      <mat-cell *matCellDef="let element"> {{element.Position}} </mat-cell>
+                    </ng-container>
+                    <ng-container matColumnDef="ID">
+                      <mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
+                      <mat-cell *matCellDef="let element"> {{element.ID}} </mat-cell>
+                    </ng-container>
+
+                    <mat-header-row *matHeaderRowDef="displayEmp"></mat-header-row>
+                    <mat-row *matRowDef="let row; columns: displayEmp;"></mat-row>
+
+                  </mat-table>
 
 
+                  <!-- <div class="col-sm-6 col-centered"></div> -->
+
+                 </mat-card>
+                 <mat-card style="background-color:#b30000;"class="col-sm-4 col-centered"><p style="color:White;">Alert Bar</p></mat-card>
+                <mat-card class=" col-centered"><iframe src="https://calendar.google.com/calendar/embed?src=2ckm1rp9qddeebicir703cf2e0%40group.calendar.google.com&ctz=America%2FNew_York"
+                style="border: 0" width="1000" height="400" frameborder="0" scrolling="no"></iframe></mat-card>
+                    <!-- <div class="col-sm-1"></div> -->
 
 
-
-
-
-                           <mat-card class="col-sm-4 col-centered">
-
-
-
-                             <mat-table #table [dataSource]="dataEmp">
-
-                               <ng-container matColumnDef="Name">
-                                 <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
-                                 <mat-cell *matCellDef="let element"> {{element.Name}} </mat-cell>
-                               </ng-container>
-
-                               <ng-container matColumnDef="Position">
-                                 <mat-header-cell *matHeaderCellDef> Position </mat-header-cell>
-                                 <mat-cell *matCellDef="let element"> {{element.Position}} </mat-cell>
-                               </ng-container>
-                               <ng-container matColumnDef="ID">
-                                 <mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
-                                 <mat-cell *matCellDef="let element"> {{element.ID}} </mat-cell>
-                               </ng-container>
-
-
-
-
-                               <mat-header-row *matHeaderRowDef="displayEmp"></mat-header-row>
-                               <mat-row *matRowDef="let row; columns: displayEmp;"></mat-row>
-                             </mat-table>
-
-
-                             <div class="col-sm-6 col-centered">
-                             </div>
-
-                           </mat-card>
-
-
-
-
-
-
-
-
+                  <!-- </div> -->
+                  </div>
 
 
                 <!-- </div> -->
