@@ -50,17 +50,18 @@
                 <div class="col-md-6">
                     <div *ngFor="let item of menuObservable | async">
                         <div *ngIf="isChickenEntree(item.Type)" style="padding-bottom:10px">
+                                <mat-card class="txtbkg">
                             <li>
-                                <p class="entree-name white">{{item.Name}}</p>
-                                <p class="desc-text indent white">Price: ${{item.Price}}</p>
-                                <p class="desc-text indent white">
+                                <p class="entree-name">{{item.Name}}</p>
+                                <p class="desc-text indent">Price: ${{item.Price}}</p>
+                                <p class="desc-text indent">
                                     {{item.Description}}
                                 </p>
                                 &emsp;&emsp;
                                 <button mat-button class="butt-text white color_animation" (click)="both(item.Name)">Add to Cart</button>
 
                             </li>
-
+                        </mat-card>
                         </div>
 
                     </div>
@@ -83,17 +84,18 @@
                 <div class="col-md-6">
                     <div *ngFor="let item of menuObservable | async">
                         <div *ngIf="isFishEntree(item.Type)" style="padding-bottom:10px">
+                                <mat-card class="txtbkg">
                             <li>
-                                <p class="entree-name white">{{item.Name}}</p>
-                                <p class="desc-text indent white">Price: ${{item.Price}}</p>
-                                <p class="desc-text indent white">
+                                <p class="entree-name">{{item.Name}}</p>
+                                <p class="desc-text indent">Price: ${{item.Price}}</p>
+                                <p class="desc-text indent">
                                     {{item.Description}}
                                 </p>
                                 &emsp;&emsp;
                                 <button mat-button class="butt-text white color_animation" (click)="both(item.Name)">Add to Cart</button>
 
                             </li>
-
+                        </mat-card>
                         </div>
 
                     </div>

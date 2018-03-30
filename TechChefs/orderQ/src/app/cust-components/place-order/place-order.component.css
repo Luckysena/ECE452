@@ -10,7 +10,7 @@ p.category{
     font-family: 'Chicle', cursive;
     font-size: 40px;
     text-align: center;
-    color: rgb(13, 30, 171);
+    color: black;
 }
 
 .header{
@@ -36,5 +36,36 @@ p.category{
 }
 
 .page{
-    min-height: 570px;
+    min-height: 600px;
+}
+.card{
+    float: none;
+    margin: 10px auto;
+    max-width: 80%;
+    opacity: 0.75;
+}
+
+body{
+  background-image: url("../../../assets/images/cartbkg.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.white{
+    color: white;
+}
+
+p.empty{
+    font-family: 'Chicle', cursive;
+    font-size: 40px;
+    text-align: center;
+    color: black;
+}
+
+.center {
+    margin: auto;
+    padding-left: 50%;
+
 }

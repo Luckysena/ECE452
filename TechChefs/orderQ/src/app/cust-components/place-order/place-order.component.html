@@ -6,42 +6,47 @@
 
 
 <body class="page">
-  <p class="category">Let's Review Your Order</p>
+  <div style="padding-top: 15%" *ngIf="!cart.length">
+    <p class="empty">You have no items selected. </p>
+    <p class="empty"> Take a look at our menu and make a selection!</p>
+    <div class="center">
+    <button mat-button routerLink="/dashboard/entrees">Go to Menu</button>
+  </div>
+  </div>
+  <div *ngIf="cart.length">
+    <p class="category">Let's Review Your Order</p>
+    <mat-card class="card">
+      <div class="table-responsive">
+        <table class="table">
+          <thead>
+            <tr class="header">
+              <th>Menu Item</th>
+              <th>Quantity</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of cart" class="table_content">
+              <td>{{item}}</td>
+              <td>
+                <button (click)="add(item)">+</button>&nbsp;&nbsp;{{getQuantity(item)}}&nbsp;&nbsp;
+                <button (click)="remove(item)">-</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="table_content nuance">
+          <mat-form-field>
+            <input matInput class="white" [(ngModel)]="table" placeholder="Table Number" type="number" />
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput class="white" [(ngModel)]="numGuests" placeholder="Number of Guests" type="number" />
+          </mat-form-field>
+          <button mat-raised-button class="white" *ngIf="isValidInput()" (click)="pushOrder()" routerLink="/dashboard/confirm">Place Order</button>
+          <button mat-raised-button class="white" *ngIf="!isValidInput()" disabled style="color:grey">Place Order</button>
+        </div>
 
-  <div class="table-responsive">
-    <table class="table">
-      <thead>
-        <tr class="header">
-          <th>Menu Item</th>
-          <th>Quantity</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let item of cart" class="table_content">
-          <td>{{item}}</td>
-          <td>
-            <button (click)="add(item)">+</button>&nbsp;&nbsp;{{getQuantity(item)}}&nbsp;&nbsp;
-            <button (click)="remove(item)">-</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-    <div class="table_content nuance">
-      <mat-form-field>
-        <input matInput [(ngModel)]="table" placeholder="Table Number" type="number" />
-      </mat-form-field>
-      <mat-form-field>
-        <input matInput [(ngModel)]="numGuests" placeholder="Number of Guests" type="number" />
-      </mat-form-field>
-      <button mat-raised-button *ngIf="isValidInput()" (click)="pushOrder()" routerLink="/dashboard/confirm">Place Order</button>
-      <button mat-raised-button *ngIf="!isValidInput()" disabled style="color:grey">Place Order</button>
-    </div>
-    <div *ngIf="!cart.length">
-      You have no items selected. Take a look at our menu and make a selection!
-      <div>
-        <button mat-button routerLink="/dashboard/entrees">Menu</button>
       </div>
-    </div>
+    </mat-card>
   </div>
 </body>
 <!-- <li *ngFor="let item of cart">

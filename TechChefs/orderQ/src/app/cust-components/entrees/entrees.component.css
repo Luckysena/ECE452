@@ -72,7 +72,7 @@ body{
 }
 
 .white{
-  color: white;
+  color:  white;
 }
 
 .color_animation:hover{
@@ -80,7 +80,9 @@ body{
 }
 
 .txtbkg {
-  background-color:##f2f2f2;
+  background-color: #f2f2f2;
+  opacity: 0.75;
 }
+
 
 
