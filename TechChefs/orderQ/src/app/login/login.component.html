@@ -1,19 +1,39 @@
-<div class="bg container">
-  <div class="text-block">
-    <h1>WELCOME TO TECH CHEFS</h1>
-    <h2 class="w3-center">Login</h2>
-    <form class="w3-center">
-      <mat-form-field>
-        <input matInput  placeholder="Username" />
-      </mat-form-field>
-      <mat-form-field>
-        <input matInput placeholder="Password" color="white" />
-      </mat-form-field>
-      <p></p>
-      <br/>
-      <button mat-raised-button class="w3-center tsize" routerLink="/queue" routerLinkActive="active">Submit</button>
-      <p></p>
-    <button mat-raised-button class="w3-center tsize" routerLink="/dashboard/home" routerLinkActive="active">Guest</button>
-    </form>
-  </div>
-</div>
+<div class="page login-page">
+      <div class="container d-flex align-items-center">
+        <div class="form-holder has-shadow">
+          <div class="row">
+            <!-- Logo & Information Panel-->
+            <div class="col-lg-6">
+              <div class="info d-flex align-items-center">
+                <div class="content">
+                  <div class="logo">
+                    <h1>Tech Chefs</h1>
+                  </div>
+                  <p>A web application to manage your restaurant!</p>
+                </div>
+              </div>
+            </div>
+            <!-- Form Panel    -->
+            <div class="col-lg-6 bg-white">
+              <div class="form d-flex align-items-center">
+                <div class="content">
+                  <form id="login-form" method="post">
+                    <div class="form-group">
+                      <input id="login-username" type="text" name="loginUsername" required="" class="input-material">
+                      <label for="login-username" class="label-material">User Name</label>
+                    </div>
+                    <div class="form-group">
+                      <input id="login-password" type="password" name="loginPassword" required="" class="input-material">
+                      <label for="login-password" class="label-material">Password</label>
+                    </div>
+                      <a id="login" style = "color: white; text-decoration: none" href="/dashboard/home" class="btn btn-primary">Guest</a>
+                      <a id="login" style = "color:white; text-decoration: none" href="/queue" class="btn btn-primary">Kitchen</a>
+                      <a id="login" style = "color: white; text-decoration: none" href="/empDash" class="btn btn-primary">Manager</a>
+                  </form><a href="#" class="forgot-pass">Forgot Password?</a><br><small>Do not have an account? </small><a href="register" class="signup">Signup</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
