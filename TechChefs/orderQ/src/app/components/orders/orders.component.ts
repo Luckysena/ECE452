@@ -50,6 +50,7 @@ export class OrdersComponent implements OnInit {
 	  if(confirm("Are you sure you want to delete")){
 		console.log(key);
 		this.ordersT.remove(key);
+		location.reload();
 	  // console.log(name);
   
 	  }
