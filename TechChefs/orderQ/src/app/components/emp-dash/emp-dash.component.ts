@@ -9,7 +9,6 @@ import{InventoryComponent} from '../inventory/inventory.component';
 import{EmployeeComponent} from '../employee/employee.component';
 import{InvDataSource} from '../inventory/inventory.component';
 import{EmpDataSource} from '../employee/employee.component';
-import Chart from 'chartjs';
 import 'rxjs/add/operator/map';
  import { EmployeeService } from '../employee/employee.service';
 
