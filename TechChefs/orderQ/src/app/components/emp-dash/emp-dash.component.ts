@@ -37,6 +37,7 @@ export class EmpDashComponent  {
     Name: '',
     Wage: '',
     Position:''
+
   }
   displayEmp =['Name','Position','ID'];
   dataEmp = new EmpDataSource(this.employee);
