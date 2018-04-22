@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { OrdersComponent } from '../components/orders/orders.component';
 import { AboutComponent } from '../components/about/about.component';
-import{EmployeeComponent} from '../components/employee/employee.component';
+import { EmployeeComponent } from '../components/employee/employee.component';
 import { SearchorderComponent } from '../components/searchorder/searchorder.component';
 import { InventoryComponent } from '../components/inventory/inventory.component';
 import { ServerComponent } from '../components/server/server.component';
@@ -14,7 +14,9 @@ import { HomeComponent } from '../cust-components/home/home.component';
 import { PlaceOrderComponent } from '../cust-components/place-order/place-order.component';
 import { ConfirmComponent } from '../cust-components/confirm/confirm.component';
 import { CustDashboardComponent } from '../cust-components/cust-dashboard/cust-dashboard.component';
-import{EmpDashComponent} from '../components/emp-dash/emp-dash.component';
+import { EmpDashComponent } from '../components/emp-dash/emp-dash.component';
+import { CommentsComponent } from '../cust-components/comments/comments.component';
+
 
 const appRoutes: Routes = [
     { path: 'login', component: LoginComponent },
@@ -25,6 +27,7 @@ const appRoutes: Routes = [
             { path: 'place-order', component: PlaceOrderComponent },
             { path: 'confirm', component: ConfirmComponent },
             { path: 'entrees', component: EntreesComponent },
+            { path: 'comments', component: CommentsComponent}
         ]
     },
     { path: 'server', component: ServerComponent },

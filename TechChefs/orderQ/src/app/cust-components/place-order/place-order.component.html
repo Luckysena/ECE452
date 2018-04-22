@@ -36,13 +36,13 @@
         </table>
         <div class="table_content nuance">
           <mat-form-field>
-            <input matInput class="white" [(ngModel)]="table" placeholder="Table Number" type="number" />
+            <input matInput class="black" [(ngModel)]="table" placeholder="Table Number" type="number" />
           </mat-form-field>
           <mat-form-field>
-            <input matInput class="white" [(ngModel)]="numGuests" placeholder="Number of Guests" type="number" />
+            <input matInput class="black" [(ngModel)]="numGuests" placeholder="Number of Guests" type="number" />
           </mat-form-field>
-          <button mat-raised-button class="white" *ngIf="isValidInput()" (click)="pushOrder()" routerLink="/dashboard/confirm">Place Order</button>
-          <button mat-raised-button class="white" *ngIf="!isValidInput()" disabled style="color:grey">Place Order</button>
+          <button mat-raised-button class="black" *ngIf="isValidInput()" (click)="pushOrder()" routerLink="/dashboard/confirm">Place Order</button>
+          <button mat-raised-button class="black" *ngIf="!isValidInput()" disabled style="color:grey">Place Order</button>
         </div>
 
       </div>

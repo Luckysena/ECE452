@@ -67,6 +67,7 @@ import { CustDashboardComponent } from './cust-components/cust-dashboard/cust-da
 import { CartComponent } from './cust-components/cart/cart.component';
 import { EmpDashComponent } from './components/emp-dash/emp-dash.component';
 import { RegisterComponent } from './register/register.component';
+import { CommentsComponent } from './cust-components/comments/comments.component';
 
 
 @NgModule({
@@ -87,6 +88,7 @@ import { RegisterComponent } from './register/register.component';
     EmployeeComponent,
     EmpDashComponent,
     RegisterComponent,
+    CommentsComponent,
 
   ],
   imports: [

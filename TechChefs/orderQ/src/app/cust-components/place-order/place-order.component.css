@@ -56,6 +56,9 @@ body{
 .white{
     color: white;
 }
+.black{
+    color: black;
+}
 
 p.empty{
     font-family: 'Chicle', cursive;

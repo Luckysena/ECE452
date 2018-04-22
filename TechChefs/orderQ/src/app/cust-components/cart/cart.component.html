@@ -1,6 +1,11 @@
 <h2 mat-dialog-title>Summary of Your Cart</h2>
 <mat-dialog-content>
-  <div class="table-responsive">
+  <div  *ngIf="!cart.length">
+        <p class="empty">You have no items selected. </p>
+        <p class="empty"> Take a look at our menu and make a selection!</p>
+
+  </div>
+  <div class="table-responsive" *ngIf="cart.length">
     <table class="table">
       <thead>
         <tr class="header">
@@ -18,11 +23,13 @@
         </tr>
       </tbody>
     </table>
-    </div>
+  </div>
 </mat-dialog-content>
 <mat-dialog-actions>
+  <div *ngIf="cart.length">
   <button mat-button mat-dialog-close>Cancel</button>
   <button mat-button [mat-dialog-close]="true" routerLink="/dashboard/place-order" routerLinkActive="active">Proceed to Order</button>
+</div>
 </mat-dialog-actions>
 
 

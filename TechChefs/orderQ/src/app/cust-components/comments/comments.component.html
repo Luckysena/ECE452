@@ -1,0 +1,10 @@
+<div>
+  <h1>Send Feedback!</h1>
+  <form>
+    <mat-form-field>
+      <input matInput class="textbox" name="feedback" [(ngModel)]="feedback"placeholder="Leave a comment">
+    </mat-form-field>
+    <p></p>
+    <button mat-raised-button (click)="leaveComment(feedback)"  mat-dialog-close routerLink="/dashboard/home"routerLinkActive="active">Submit</button>
+  </form>
+</div>
