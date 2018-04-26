@@ -68,6 +68,7 @@ import { CartComponent } from './cust-components/cart/cart.component';
 import { EmpDashComponent } from './components/emp-dash/emp-dash.component';
 import { RegisterComponent } from './register/register.component';
 import { CommentsComponent } from './cust-components/comments/comments.component';
+import { MessageComponent } from './cust-components/message/message.component';
 
 
 @NgModule({
@@ -89,6 +90,7 @@ import { CommentsComponent } from './cust-components/comments/comments.component
     EmpDashComponent,
     RegisterComponent,
     CommentsComponent,
+    MessageComponent,
 
   ],
   imports: [
