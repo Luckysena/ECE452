@@ -67,8 +67,11 @@ import { CustDashboardComponent } from './cust-components/cust-dashboard/cust-da
 import { CartComponent } from './cust-components/cart/cart.component';
 import { EmpDashComponent } from './components/emp-dash/emp-dash.component';
 import { RegisterComponent } from './register/register.component';
+
 import { CommentsComponent } from './cust-components/comments/comments.component';
 import { MessageComponent } from './cust-components/message/message.component';
+import { MinThreshComponent } from './min-thresh/min-thresh.component';
+
 
 
 @NgModule({
@@ -91,6 +94,7 @@ import { MessageComponent } from './cust-components/message/message.component';
     RegisterComponent,
     CommentsComponent,
     MessageComponent,
+    MinThreshComponent,
 
   ],
   imports: [

@@ -1,0 +1,16 @@
+<div *ngFor="let item of orderObservable | async">
+
+        <mat-card class="txtbkg">
+            <li>
+                <p >{{item.timestamp}}</p>
+              <p>{{item.items}}</p>  <!-- <p class="desc-text indent">Price: ${{item.Price}}</p>
+                <p class="desc-text indent">
+                    {{item.Description}}
+                </p> -->
+                &emsp;&emsp;
+                <button mat-button class="mx-auto butt-text white color_animation" (click)="both(item.Name)">Add to Cart</button>
+            </li>
+        </mat-card>
+        <p></p>
+
+</div>
