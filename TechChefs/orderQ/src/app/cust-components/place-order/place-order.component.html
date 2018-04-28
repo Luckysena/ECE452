@@ -21,18 +21,26 @@
           <thead>
             <tr class="header">
               <th>Menu Item</th>
+              <th>Price</th>
               <th>Quantity</th>
             </tr>
           </thead>
           <tbody>
             <tr *ngFor="let item of cart" class="table_content">
-              <td>{{item}}</td>
+              <div *ngFor="let x of menuObservable|async">
+                <div *ngIf="isItem(item,x.Name,x.Price)">
+                  <td>{{x.Name}}</td>
+                  <td>{{x.Price}}</td>
+                </div>
+              </div>
               <td>
-                <button (click)="add(item)">+</button>&nbsp;&nbsp;{{getQuantity(item)}}&nbsp;&nbsp;
                 <button (click)="remove(item)">-</button>
+                &nbsp;&nbsp;{{getQuantity(item)}}&nbsp;&nbsp;
+                <button (click)="add(item)">+</button>
               </td>
             </tr>
           </tbody>
+          <button (click)="total()">Total=</button>
         </table>
         <div class="table_content nuance">
           <mat-form-field>
