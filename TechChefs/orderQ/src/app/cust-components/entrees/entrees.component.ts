@@ -79,6 +79,8 @@ export class EntreesComponent implements OnInit {
     this.add(key);
   }
 
+  
+
   constructor( private cookieService: CookieService, private db: AngularFireDatabase) { }
   ngOnInit(): void {
     this.menuObservable = this.getInv('/menu');
