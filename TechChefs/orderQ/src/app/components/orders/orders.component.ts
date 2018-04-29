@@ -29,7 +29,7 @@ export class OrdersComponent implements OnInit {
 
   ngOnInit() {
 	 //  this.ordObservable = this.getOrd('/Orders');
-   console.log(this.dServe.getMessages());
+  
     }
 	getOrd(listPath): Observable<any[]> {
 		return this.db.list(listPath).valueChanges();
