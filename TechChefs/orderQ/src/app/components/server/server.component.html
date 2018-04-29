@@ -37,7 +37,7 @@
 			<button (click)="goMenu()" class= "btn btn-primary" type ="button">View Menu</button>
 			<button class= "btn btn-primary" type ="button">View Schedule</button>
 			<ul class = "list-unstyled" style="background-color:white" *ngIf=isAlert >
-				<li class = "alerts" *ngFor="let alert of alerts">{{alert}}</li>
+				<li class = "alerts" *ngFor="let Alerts of salObservable | async">{{Alerts.message}}<button class = "btn btn-default" (click)="removeSal(Alerts.key)" type ="button">X</button>Time: {{Alerts.timestamp}}</li>
 			</ul>
 
 				</div>
