@@ -16,6 +16,7 @@ import { ConfirmComponent } from '../cust-components/confirm/confirm.component';
 import { CustDashboardComponent } from '../cust-components/cust-dashboard/cust-dashboard.component';
 import { EmpDashComponent } from '../components/emp-dash/emp-dash.component';
 import { CommentsComponent } from '../cust-components/comments/comments.component';
+import { MessageComponent } from '../cust-components/message/message.component';
 
 
 const appRoutes: Routes = [
@@ -27,7 +28,8 @@ const appRoutes: Routes = [
             { path: 'place-order', component: PlaceOrderComponent },
             { path: 'confirm', component: ConfirmComponent },
             { path: 'entrees', component: EntreesComponent },
-            { path: 'comments', component: CommentsComponent}
+            { path: 'comments', component: CommentsComponent },
+            { path: 'message', component: MessageComponent }
         ]
     },
     { path: 'server', component: ServerComponent },
