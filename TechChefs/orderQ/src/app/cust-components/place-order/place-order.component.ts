@@ -76,8 +76,8 @@ export class PlaceOrderComponent implements OnInit {
       this.db.list('/Orders').push(order);
       this.ord.addOrder(order);
       this.status = "Table " + this.table + " is sat and waiting for their food.";
-      let table = new Table(this.status, this.table, String(Date()));
-      this.db.list('/Table Status');
+      let tab = new Table(this.status, this.table, String(Date()));
+      this.db.list('/Table Status').push(tab);
       // this.afs.collection('/Orders').add(order).then(()=>{
       //   console.log('Done');
       // });
