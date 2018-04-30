@@ -53,12 +53,9 @@ export class ServerComponent implements OnInit {
   }
   tabClean(table, key, stat){
     this.tNum = table;
-    this.status = "Table " + this.tNum + " is vacant and ready to be sat.";
-    if(this.status != stat){
+    this.status = "Table " + this.tNum + " is ready to be sat?";
+    if(confirm(this.status)){
       this.tabStat.remove(key);
-      let tab = new Table(this.status, this.tNum, String(Date()));
-      this.db.list('/Table Status').push(tab);
-      location.reload();
     }
   }
   tabLef(table, key, stat){
