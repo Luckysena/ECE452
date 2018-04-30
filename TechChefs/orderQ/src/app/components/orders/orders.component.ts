@@ -18,6 +18,8 @@ export class OrdersComponent implements OnInit {
   tNum: string;
   alert: string;
 	ordObservable: Observable<any[]>;
+  status;
+  
 	constructor(private db: AngularFireDatabase, private router: Router, public dServe: DataService) {
 		this.ordersT = db.list('/Orders');
 		// Use snapshotChanges().map() to store the key
@@ -29,7 +31,7 @@ export class OrdersComponent implements OnInit {
 
   ngOnInit() {
 	 //  this.ordObservable = this.getOrd('/Orders');
-  
+
     }
 	getOrd(listPath): Observable<any[]> {
 		return this.db.list(listPath).valueChanges();

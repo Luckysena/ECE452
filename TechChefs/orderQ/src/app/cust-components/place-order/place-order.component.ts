@@ -10,7 +10,6 @@ import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument 
 import { DataSource } from '@angular/cdk/collections';
 import { MatTableDataSource } from '@angular/material';
 import 'rxjs/add/operator/map';
-import { OrderService } from './order.service';
 
 @Component({
   selector: 'app-place-order',
@@ -27,7 +26,7 @@ export class PlaceOrderComponent implements OnInit {
   status: string;
   totalPrice = 0;
 
-  constructor( private cookieService: CookieService, private db: AngularFireDatabase, private datePipe: DatePipe,private afs: AngularFirestore, public ord: OrderService ) {}
+  constructor( private cookieService: CookieService, private db: AngularFireDatabase, private datePipe: DatePipe) {}
 
   menuObservable: Observable<any[]>;
 
@@ -77,10 +76,6 @@ export class PlaceOrderComponent implements OnInit {
       }
       let order = new Order(items, this.table, this.numGuests, String(Date.now()));
       this.db.list('/Orders').push(order);
-      this.ord.addOrder(order);
-      // this.afs.collection('/Orders').add(order).then(()=>{
-      //   console.log('Done');
-      // });
       this.cookieService.deleteAll();
   }
 
@@ -100,8 +95,8 @@ export class PlaceOrderComponent implements OnInit {
     }
     return this.totalPrice;
   }
-  
-  
+
+
 
   ngOnInit(): void{
     this.menuObservable = this.getInv('/menu');

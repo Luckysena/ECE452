@@ -17,12 +17,6 @@ import { SearchorderComponent } from './components/searchorder/searchorder.compo
 import { InventoryComponent } from './components/inventory/inventory.component';
 import { ServerComponent } from './components/server/server.component';
 import { EntreesComponent } from './cust-components/entrees/entrees.component';
-<<<<<<< HEAD
-import { OrderService } from './cust-components/place-order/order.service';
-
-=======
-import { OrderService } from './cust-components/place-order/order.service'
->>>>>>> 077ae47133084ea85cc82602798daa70f25d1756
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
@@ -145,7 +139,7 @@ import { MinThreshComponent } from './min-thresh/min-thresh.component';
   entryComponents: [
     CartComponent
   ],
-  providers: [DataService, CookieService, DatePipe, InvServiceService, EmployeeService, OrderService],
+  providers: [DataService, CookieService, DatePipe, InvServiceService, EmployeeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
