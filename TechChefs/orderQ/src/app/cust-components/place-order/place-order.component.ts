@@ -82,6 +82,7 @@ export class PlaceOrderComponent implements OnInit {
   isItem(item: string, x:string, price: string): boolean{
     if(item==x){
       var a = parseFloat(price);
+      //console.log(x);
       this.receipt.push(a);
       return true;
     }
@@ -93,7 +94,7 @@ export class PlaceOrderComponent implements OnInit {
       console.log(p);
       this.totalPrice = this.totalPrice + p;
     }
-    console.log(this.totalPrice);
+    //console.log(this.totalPrice);
     return this.totalPrice;
   }
   
