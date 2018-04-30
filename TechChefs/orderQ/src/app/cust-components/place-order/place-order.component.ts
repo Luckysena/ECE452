@@ -24,10 +24,7 @@ export class PlaceOrderComponent implements OnInit {
   table;
   numGuests;
   receipt;
-<<<<<<< HEAD
-=======
   status: string;
->>>>>>> 077ae47133084ea85cc82602798daa70f25d1756
   totalPrice = 0;
 
   constructor( private cookieService: CookieService, private db: AngularFireDatabase, private datePipe: DatePipe,private afs: AngularFirestore, public ord: OrderService ) {}
@@ -90,10 +87,6 @@ export class PlaceOrderComponent implements OnInit {
   isItem(item: string, x:string, price: string): boolean{
     if(item==x){
       var a = parseFloat(price);
-<<<<<<< HEAD
-      //console.log(x);
-=======
->>>>>>> 077ae47133084ea85cc82602798daa70f25d1756
       this.receipt.push(a);
       return true;
     }
@@ -105,11 +98,6 @@ export class PlaceOrderComponent implements OnInit {
       console.log(p);
       this.totalPrice = this.totalPrice + p;
     }
-<<<<<<< HEAD
-    //console.log(this.totalPrice);
-=======
-    console.log(this.totalPrice);
->>>>>>> 077ae47133084ea85cc82602798daa70f25d1756
     return this.totalPrice;
   }
   
