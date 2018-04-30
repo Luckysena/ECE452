@@ -24,6 +24,7 @@ export class PlaceOrderComponent implements OnInit {
   table;
   numGuests;
   receipt;
+  status: string;
   totalPrice = 0;
 
   constructor( private cookieService: CookieService, private db: AngularFireDatabase, private datePipe: DatePipe,private afs: AngularFirestore, public ord: OrderService ) {}
