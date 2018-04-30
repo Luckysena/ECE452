@@ -1,3 +1,40 @@
-<p>
-  message works!
+<body>
+<h2 class = 'hotline'>
+  Customer Service Message Hotline
+</h2>
+<p class = 'hotline'>
+  Hello table 2! Please enter your message to the kitchen below!
 </p>
+
+
+
+
+<h2>Chat Messages</h2>
+
+<div *ngFor = "let x of messagesObservable|async">
+
+<div *ngIf = "isKitchen(x.Type)">
+<div class="container">
+  <img src="../../../assets/images/sexychef.png" alt="Avatar" style="width:100%;">
+  <p>{{x.Message}}</p>
+</div>
+</div>
+
+
+<div *ngIf="isCustomer(x.Type)">
+<div class="container darker">
+  <img src="../../../assets/images/customereating.jpg" alt="Avatar" class="right" style="width:100%;">
+  <p>{{x.Message}}</p>
+</div>
+</div>
+
+</div>
+
+
+<h3 class = 'hotline'>
+<input  mat-input name = "message" [(ngModel)]="message" placeholder="Enter Message:"/>
+<button mat-raised-button color='primary' (click)="leaveMessage(message)"> Send Message</button>
+</h3>
+
+
+</body>

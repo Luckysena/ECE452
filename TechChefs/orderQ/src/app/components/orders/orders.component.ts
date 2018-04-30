@@ -3,7 +3,7 @@ import {Router} from '@angular/router';
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import { Observable } from 'rxjs/Observable';
 import {DataService} from '../../services/data.service';
-
+import {Alert}from './alert'
 
 
 @Component({
@@ -14,29 +14,35 @@ import {DataService} from '../../services/data.service';
 export class OrdersComponent implements OnInit {
 	ordersT: AngularFireList<any[]>;
 	isSearch: boolean = false;
+  isMess: boolean = false;
+  tNum: string;
+  alert: string;
 	ordObservable: Observable<any[]>;
-	constructor(private db: AngularFireDatabase, private router: Router, private dServe: DataService) {
+	constructor(private db: AngularFireDatabase, private router: Router, public dServe: DataService) {
 		this.ordersT = db.list('/Orders');
 		// Use snapshotChanges().map() to store the key
 		this.ordObservable = this.ordersT.snapshotChanges().map(changes => {
 		  return changes.map(c => ({ key: c.payload.key, ...c.payload.val() }));
 		});
-	
+
 		}
 
   ngOnInit() {
 	 //  this.ordObservable = this.getOrd('/Orders');
+  
     }
 	getOrd(listPath): Observable<any[]> {
 		return this.db.list(listPath).valueChanges();
   }
-  orderReady(){
+  orderReady(key, table){
+    this.deleteOrder(key, table);
+    this.ordAlert(table);
   }
-  clearOrder1(){
-  }
-  clearOrder2(){
-  }
-  clearOrder3(){
+  ordAlert(table){
+    this.tNum = table;
+    this.alert = "Table " + this.tNum + "\'s order is ready to be served!";
+    let al = new Alert(this.alert, String(Date()));
+    this.db.list('/servAlert').push(al);
   }
   toggSearch(){
   this.isSearch=!this.isSearch;
@@ -44,18 +50,20 @@ export class OrdersComponent implements OnInit {
   searchOrder(tNum){
     this.router.navigate(['/table/43']);
   }
-  deleteOrder(key){
+  deleteOrder(key, table){
 	// var ref = name.snapshot();
-	  
-	  if(confirm("Are you sure you want to delete")){
+    this.tNum = table;
+    this.status = "Table " + this.tNum + "\'s order is ready?";
+	  if(confirm(this.status)){
 		console.log(key);
 		this.ordersT.remove(key);
 		location.reload();
 	  // console.log(name);
-  
 	  }
-  
 	}
+  toggMessage(){
+    this.isMess=!this.isMess;
+  }
   logout(){
     this.dServe.logout();
   }
@@ -118,7 +126,7 @@ function myTime() {
 		}
 	}
 }
-//sets interval for timer 
+//sets interval for timer
 setInterval(function(){myTime()}, 3000);
 
 //helps format timer

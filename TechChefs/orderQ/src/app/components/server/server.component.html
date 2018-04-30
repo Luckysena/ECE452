@@ -3,50 +3,35 @@
 	<button (click)= "logout()" class= "btn-lg btn-primary">Logout</button>
   <div class="container">
       <div class="row">
-        <div class="col-md-4 col-sm-4 col-xs-4">
-
-       	<table class="table table-striped table-bordered table-hover table-condensed bg-light">
+      <table class="table table-striped table-bordered table-hover table-condensed bg-light">
         <tr>
-          <th>Table</th>
           <th>Status</th>
+          <th>Time</th>
+					<th>Action</th>
         </tr>
-        <tr>
-          <td>43</td>
-          <td>Seated-Eating</td>
-        </tr>
-        <tr>
-          <td>35</td>
-          <td>Seated-Waiting</td>
-        </tr>
-        <tr>
-          <td>28</td>
-          <td>Seated-Done</td>
-        </tr>
-        <tr>
-          <td>16</td>
-          <td>Vacant-Dirty</td>
-        </tr>
-        <tr>
-          <td>14</td>
-          <td>Vacant-Ready</td>
-        </tr>
+				<tr *ngFor="let Table of tabObservable | async">
+					<td>{{Table.status}}</td>
+					<td><small>{{Table.time}}</small></td>
+					<td>
+						<button id="Delivered" (click)="foDel(Table.table, Table.key, Table.status)" class="btn-sm btn-primary" type="button">Food Delivered</button>
+						<button id="Vacant" (click)="tabLef(Table.table, Table.key, Table.status)" class="btn-sm btn-primary" type="button">Table Left</button>
+						<button id="Ready" (click)="tabClean(Table.table, Table.key, Table.status)" class="btn-sm btn-primary" type="button">Table Clean</button>
+					</td>
+				</tr>
       </table>
-			<button id="alert"(click)="toggAlert()" class="btn btn-primary" type="button">
+			<button id="alert"(click)="toggAlert()" class="btn-sm btn-primary" type="button">
 				Alerts <span class="badge"></span>
 			</button>
-			<button (click)="goMenu()" class= "btn btn-primary" type ="button">View Menu</button>
-			<button class= "btn btn-primary" type ="button">View Schedule</button>
-			<ul class = "list-unstyled" style="background-color:white" *ngIf=isAlert >
-				<li class = "alerts" *ngFor="let alert of alerts">{{alert}}</li>
-			</ul>
-
-				</div>
-
-        <div class="col-md-8 col-sm-8 col-xs-8">
-        </div>
+			<button (click)="goMenu()" class= "btn-sm btn-primary" type ="button">View Menu</button>
+		<!--	<button class= "btn-sm btn-primary" type ="button">View Schedule</button> -->
+			<div class="container" style="postion:relative; margin-top: 0%;" *ngIf=isAlert>
+				<ul class = "list-unstyled" style="background-color:white">
+					<li class = "alerts" *ngFor="let Alerts of salObservable | async"> {{Alerts.message}} <button class = "btn-sm btn-default" (click)="removeSal(Alerts.key)" type ="button">X</button><small> | Time: {{Alerts.timestamp}}</small></li>
+				</ul>
       </div>
+
+    </div>
   </div>
 
 	</body>
 </html>
-

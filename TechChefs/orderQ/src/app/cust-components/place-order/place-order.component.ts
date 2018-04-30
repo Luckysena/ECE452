@@ -4,6 +4,7 @@ import { AngularFireDatabase } from 'angularfire2/database';
 import { Observable } from 'rxjs/Observable';
 import { Order } from './order'
 import { Item } from './item'
+import { Table } from './table'
 import { DatePipe } from '@angular/common';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from 'angularfire2/firestore';
 import { DataSource } from '@angular/cdk/collections';
@@ -23,6 +24,10 @@ export class PlaceOrderComponent implements OnInit {
   table;
   numGuests;
   receipt;
+<<<<<<< HEAD
+=======
+  status: string;
+>>>>>>> 077ae47133084ea85cc82602798daa70f25d1756
   totalPrice = 0;
 
   constructor( private cookieService: CookieService, private db: AngularFireDatabase, private datePipe: DatePipe,private afs: AngularFirestore, public ord: OrderService ) {}
@@ -66,6 +71,9 @@ export class PlaceOrderComponent implements OnInit {
   }
 
   pushOrder(): void {
+      this.status = "Table " + this.table + " is sat and waiting for their food.";
+      let tab = new Table(this.status, this.table, String(Date()));
+      this.db.list('/Table Status').push(tab);
       let items = new Array<Item>();
       for (let key of this.cart) {
          items.push(new Item(key, this.getQuantity(key)));
@@ -82,7 +90,10 @@ export class PlaceOrderComponent implements OnInit {
   isItem(item: string, x:string, price: string): boolean{
     if(item==x){
       var a = parseFloat(price);
+<<<<<<< HEAD
       //console.log(x);
+=======
+>>>>>>> 077ae47133084ea85cc82602798daa70f25d1756
       this.receipt.push(a);
       return true;
     }
@@ -94,7 +105,11 @@ export class PlaceOrderComponent implements OnInit {
       console.log(p);
       this.totalPrice = this.totalPrice + p;
     }
+<<<<<<< HEAD
     //console.log(this.totalPrice);
+=======
+    console.log(this.totalPrice);
+>>>>>>> 077ae47133084ea85cc82602798daa70f25d1756
     return this.totalPrice;
   }
   
