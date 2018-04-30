@@ -26,7 +26,7 @@
 		<!--	<button class= "btn-sm btn-primary" type ="button">View Schedule</button> -->
 			<div class="container" style="postion:relative; margin-top: 0%;" *ngIf=isAlert>
 				<ul class = "list-unstyled" style="background-color:white">
-					<li class = "alerts" *ngFor="let Alerts of salObservable | async">{{Alerts.message}}<button class = "btn-sm btn-default" (click)="removeSal(Alerts.key)" type ="button">X</button><small>| Time: {{Alerts.timestamp}}</small></li>
+					<li class = "alerts" *ngFor="let Alerts of salObservable | async"> {{Alerts.message}} <button class = "btn-sm btn-default" (click)="removeSal(Alerts.key)" type ="button">X</button><small> | Time: {{Alerts.timestamp}}</small></li>
 				</ul>
       </div>
 
