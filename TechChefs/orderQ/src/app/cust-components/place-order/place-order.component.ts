@@ -4,6 +4,7 @@ import { AngularFireDatabase } from 'angularfire2/database';
 import { Observable } from 'rxjs/Observable';
 import { Order } from './order'
 import { Item } from './item'
+import { Table } from './table'
 import { DatePipe } from '@angular/common';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from 'angularfire2/firestore';
 import { DataSource } from '@angular/cdk/collections';
@@ -73,6 +74,9 @@ export class PlaceOrderComponent implements OnInit {
       let order = new Order(items, this.table, this.numGuests, String(Date.now()));
       this.db.list('/Orders').push(order);
       this.ord.addOrder(order);
+      this.status = "Table " + this.table + " is sat and waiting for their food.";
+      let table = new Table(this.status, this.table, String(Date()));
+      this.db.list('/Table Status');
       // this.afs.collection('/Orders').add(order).then(()=>{
       //   console.log('Done');
       // });
