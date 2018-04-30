@@ -50,17 +50,16 @@ export class OrdersComponent implements OnInit {
   searchOrder(tNum){
     this.router.navigate(['/table/43']);
   }
-  deleteOrder(key){
+  deleteOrder(key, table){
 	// var ref = name.snapshot();
-
-	  if(confirm("Are you sure you want to delete?")){
+    this.tNum = table;
+    this.status = "Table " + this.tNum + "\'s order is ready?";
+	  if(confirm(this.status)){
 		console.log(key);
 		this.ordersT.remove(key);
 		location.reload();
 	  // console.log(name);
-
 	  }
-
 	}
   toggMessage(){
     this.isMess=!this.isMess;
