@@ -8,6 +8,6 @@ export class DataService {
     this.router.navigate(['/login']);
   }
   goMenu(){
-    this.router.navigate(['/entree']);
+    this.router.navigate(['/dashboard/entrees']);
   }
 }
