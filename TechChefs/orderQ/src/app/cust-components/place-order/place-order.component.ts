@@ -24,7 +24,6 @@ export class PlaceOrderComponent implements OnInit {
   numGuests;
   receipt;
   status: string;
-  totalPrice = 0;
 
   constructor( private cookieService: CookieService, private db: AngularFireDatabase, private datePipe: DatePipe) {}
 
@@ -82,21 +81,26 @@ export class PlaceOrderComponent implements OnInit {
   isItem(item: string, x:string, price: string): boolean{
     if(item==x){
       var a = parseFloat(price);
-      this.receipt.push(a);
       return true;
     }
     return false;
   }
 
-  total(): number{
-    for(let p of this.receipt){
-      console.log(p);
-      this.totalPrice = this.totalPrice + p;
+  getPrice(singleItemPrice: number, name: string): string{
+    var itemPrice = singleItemPrice * this.getQuantity(name);
+    if (!this.receipt.includes(singleItemPrice)) {
+      this.receipt.push(singleItemPrice);
     }
-    return this.totalPrice;
+    return itemPrice.toFixed(2);
   }
 
-
+  getTotal(): string {
+    var totalPrice = 0;
+    for (let i in this.receipt) {
+      totalPrice += this.receipt[i] * this.getQuantity(this.cart[i]);
+    }
+    return totalPrice.toFixed(2);
+  }
 
   ngOnInit(): void{
     this.menuObservable = this.getInv('/menu');
@@ -106,6 +110,10 @@ export class PlaceOrderComponent implements OnInit {
     for (let key in allCookies) {
       this.cart.push(key);
     }
+//    this.items = this.db.list('/menu').valueChanges().subscribe(items => {
+  //    console.log(items);
+    //}));
+
   }
 
 
