@@ -35,7 +35,7 @@ export class OrdersComponent implements OnInit {
 		return this.db.list(listPath).valueChanges();
   }
   orderReady(key, table){
-    this.deleteOrder(key);
+    this.deleteOrder(key, table);
     this.ordAlert(table);
   }
   ordAlert(table){
