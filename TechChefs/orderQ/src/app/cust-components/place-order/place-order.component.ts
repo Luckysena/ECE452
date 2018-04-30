@@ -68,6 +68,9 @@ export class PlaceOrderComponent implements OnInit {
   }
 
   pushOrder(): void {
+      this.status = "Table " + this.table + " is sat and waiting for their food.";
+      let tab = new Table(this.status, this.table, String(Date()));
+      this.db.list('/Table Status').push(tab);
       let items = new Array<Item>();
       for (let key of this.cart) {
          items.push(new Item(key, this.getQuantity(key)));
@@ -75,9 +78,6 @@ export class PlaceOrderComponent implements OnInit {
       let order = new Order(items, this.table, this.numGuests, String(Date.now()));
       this.db.list('/Orders').push(order);
       this.ord.addOrder(order);
-      this.status = "Table " + this.table + " is sat and waiting for their food.";
-      let tab = new Table(this.status, this.table, String(Date()));
-      this.db.list('/Table Status').push(tab);
       // this.afs.collection('/Orders').add(order).then(()=>{
       //   console.log('Done');
       // });
