@@ -16,7 +16,8 @@ export class OrdersComponent implements OnInit {
 	isSearch: boolean = false;
   isMess: boolean = false;
   tNum: string;
-  alert: string;
+	alert: string;
+	status: string;
 	ordObservable: Observable<any[]>;
 	constructor(private db: AngularFireDatabase, private router: Router, public dServe: DataService) {
 		this.ordersT = db.list('/Orders');
