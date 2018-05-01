@@ -30,7 +30,7 @@
               <div *ngFor="let x of menuObservable|async">
                 <div *ngIf="isItem(item,x.Name,x.Price)">
                   <td>{{x.Name}}</td>
-                  <td>{{x.Price}}</td>
+                  <td>${{getPrice(x.Price, x.Name)}}</td>
                 </div>
               </div>
               <td>
@@ -39,8 +39,9 @@
                 <button (click)="add(item)">+</button>
               </td>
             </tr>
+            <td>Total: ${{getTotal()}}</td>
           </tbody>
-          <button (click)="total()">Total=</button>
+
         </table>
         <div class="table_content nuance">
           <mat-form-field>
@@ -58,7 +59,7 @@
   </div>
 </body>
 <!-- <li *ngFor="let item of cart">
-    {{item}} 
+    {{item}}
     <button (click)="add(item)">+</button>
     {{getQuantity(item)}}
     <button (click)="remove(item)">-</button>

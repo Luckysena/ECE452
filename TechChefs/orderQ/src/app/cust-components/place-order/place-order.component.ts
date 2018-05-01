@@ -10,7 +10,6 @@ import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument 
 import { DataSource } from '@angular/cdk/collections';
 import { MatTableDataSource } from '@angular/material';
 import 'rxjs/add/operator/map';
-import { OrderService } from './order.service';
 
 @Component({
   selector: 'app-place-order',
@@ -25,9 +24,8 @@ export class PlaceOrderComponent implements OnInit {
   numGuests;
   receipt;
   status: string;
-  totalPrice = 0;
 
-  constructor( private cookieService: CookieService, private db: AngularFireDatabase, private datePipe: DatePipe,private afs: AngularFirestore, public ord: OrderService ) {}
+  constructor( private cookieService: CookieService, private db: AngularFireDatabase, private datePipe: DatePipe) {}
 
   menuObservable: Observable<any[]>;
 
@@ -77,31 +75,32 @@ export class PlaceOrderComponent implements OnInit {
       }
       let order = new Order(items, this.table, this.numGuests, String(Date.now()));
       this.db.list('/Orders').push(order);
-      this.ord.addOrder(order);
-      // this.afs.collection('/Orders').add(order).then(()=>{
-      //   console.log('Done');
-      // });
       this.cookieService.deleteAll();
   }
 
   isItem(item: string, x:string, price: string): boolean{
     if(item==x){
       var a = parseFloat(price);
-      this.receipt.push(a);
       return true;
     }
     return false;
   }
 
-  total(): number{
-    for(let p of this.receipt){
-      console.log(p);
-      this.totalPrice = this.totalPrice + p;
+  getPrice(singleItemPrice: number, name: string): string{
+    var itemPrice = singleItemPrice * this.getQuantity(name);
+    if (!this.receipt.includes(singleItemPrice)) {
+      this.receipt.push(singleItemPrice);
     }
-    return this.totalPrice;
+    return itemPrice.toFixed(2);
   }
-  
-  
+
+  getTotal(): string {
+    var totalPrice = 0;
+    for (let i in this.receipt) {
+      totalPrice += this.receipt[i] * this.getQuantity(this.cart[i]);
+    }
+    return totalPrice.toFixed(2);
+  }
 
   ngOnInit(): void{
     this.menuObservable = this.getInv('/menu');
@@ -111,6 +110,10 @@ export class PlaceOrderComponent implements OnInit {
     for (let key in allCookies) {
       this.cart.push(key);
     }
+//    this.items = this.db.list('/menu').valueChanges().subscribe(items => {
+  //    console.log(items);
+    //}));
+
   }
 
 
