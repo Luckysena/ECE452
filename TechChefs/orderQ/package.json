@@ -23,6 +23,7 @@
     "@angular/platform-browser": "^5.2.0",
     "@angular/platform-browser-dynamic": "^5.2.0",
     "@angular/router": "^5.2.0",
+    "angular-chartjs": "0.0.5",
     "angular-cookies": "^1.6.9",
     "angularfire": "^2.3.0",
     "angularfire2": "^5.0.0-rc.2",

@@ -17,6 +17,7 @@ import { CustDashboardComponent } from '../cust-components/cust-dashboard/cust-d
 import { EmpDashComponent } from '../components/emp-dash/emp-dash.component';
 import { CommentsComponent } from '../cust-components/comments/comments.component';
 import { MessageComponent } from '../cust-components/message/message.component';
+import { RevenueGraphComponent } from '../components/revenue-graph/revenue-graph.component';
 
 
 const appRoutes: Routes = [
@@ -39,6 +40,7 @@ const appRoutes: Routes = [
     { path: 'employee', component: EmployeeComponent },
     { path: 'queue', component: OrdersComponent },
     { path: 'about', component: AboutComponent },
+    { path: 'revenue', component: RevenueGraphComponent },
     { path: '', redirectTo: '/login', pathMatch: 'full' }
 ];
 
