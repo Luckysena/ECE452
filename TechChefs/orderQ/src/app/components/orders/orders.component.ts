@@ -3,8 +3,8 @@ import {Router} from '@angular/router';
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import { Observable } from 'rxjs/Observable';
 import {DataService} from '../../services/data.service';
-import {Alert}from './alert'
-
+import { Alert } from './alert'
+import { Mess } from './message'
 
 @Component({
   selector: 'app-orders',
@@ -19,7 +19,10 @@ export class OrdersComponent implements OnInit {
   alert: string;
 	ordObservable: Observable<any[]>;
   status;
-  
+  type = 'Kitchen';
+  message;
+
+
 	constructor(private db: AngularFireDatabase, private router: Router, public dServe: DataService) {
 		this.ordersT = db.list('/Orders');
 		// Use snapshotChanges().map() to store the key
@@ -31,8 +34,42 @@ export class OrdersComponent implements OnInit {
 
   ngOnInit() {
 	 //  this.ordObservable = this.getOrd('/Orders');
+   this.messagesObservable = this.getMessage('/messages/table2');
+  }
+  leaveMessage():void{
+    let messages = new Mess(this.type,this.message);
+    this.db.list('/messages/table2').push(messages);
+  }
 
+
+
+  messagesObservable: Observable<any[]>
+  getMessage(listPath): Observable<any[]>{
+    return this.db.list(listPath).valueChanges();
+  }
+
+
+  isCustomer(x: string) :boolean{
+    console.log(x);
+    if(x=='Customer'){
+    return true;
     }
+    else{
+    return false;
+    }
+  }
+
+  isKitchen(x: string) :boolean{
+    console.log(x);
+    if(x=='Kitchen'){
+    return true;
+    }
+    else{
+    return false;
+    }
+  }
+
+
 	getOrd(listPath): Observable<any[]> {
 		return this.db.list(listPath).valueChanges();
   }
@@ -138,3 +175,4 @@ function checkTime(i) {
     }
     return i;
 }
+
