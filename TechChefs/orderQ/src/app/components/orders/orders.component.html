@@ -26,16 +26,16 @@
 </head>
 <body class="bg-dark">
 <button (click)= "logout()" class= "btn-lg btn-primary">Logout</button>
-<div class = "container">
+<div>
 <h1 class = "page-header text-white"> Order Queue</h1>
 </div>
-<div class = "container">
+<div>
 <form (submit)= "searchOrder(tNum.value)" *ngIf=isSearch>
 	<label for="search" class="text-white">Search Order: </label>
 	<input type="number" class="form-control" placeholder="table number..." #tNum>
 </form>
 </div>
-<div class = "container">
+<div>
 <div class="row">
 	<div id = "ticket0" src onerror = 'initTime()' class="column" style="background-color:white" *ngFor="let Orders of ordObservable | async">
 		<h3><u>Table: {{Orders.table}}</u></h3>
@@ -73,9 +73,44 @@
 </div>
 <hr>
 <div *ngIf=isMess>
-  <ul class="list-unstyled" style="background-color:white">
-    <li>Test Messages</li>
-  </ul>
+    <h2 class = 'hotline' style = "color: white">
+      Customer Service Message Hotline
+    </h2>
+    <p class = 'hotline' style = "color: white">
+      Hello Chef! Please enter your message to the customers below!
+    </p>
+
+
+
+
+    <h2 style = "color: white">Chat Messages</h2>
+
+    <div *ngFor = "let x of messagesObservable|async">
+
+    <div *ngIf = "isKitchen(x.Type)">
+    <div class="container">
+      <img src="../../../assets/images/sexychef.png" alt="Avatar" style="width:100%;">
+      <p>{{x.Message}}</p>
+    </div>
+    </div>
+
+
+    <div *ngIf="isCustomer(x.Type)">
+    <div class="container darker">
+      <img src="../../../assets/images/customereating.jpg" alt="Avatar" class="right" style="width:100%;">
+      <p>{{x.Message}}</p>
+    </div>
+    </div>
+
+    </div>
+
+
+    <h3 class = 'hotline'>
+    <input  mat-input name = "message" [(ngModel)]="message" placeholder="Enter Message:"/>
+    <button mat-raised-button color='primary' (click)="leaveMessage(message)"> Send Message</button>
+    </h3>
+
+
 </div>
 </body>
 </html>
