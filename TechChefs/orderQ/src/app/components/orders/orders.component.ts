@@ -40,6 +40,7 @@ export class OrdersComponent implements OnInit {
   leaveMessage():void{
     let messages = new Mess(this.type,this.message);
     this.db.list('/messages/table2').push(messages);
+    this.message = "";
   }
 
 
