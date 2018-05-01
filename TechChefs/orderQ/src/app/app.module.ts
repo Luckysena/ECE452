@@ -65,6 +65,7 @@ import { ConfirmComponent } from './cust-components/confirm/confirm.component';
 import { CustDashboardComponent } from './cust-components/cust-dashboard/cust-dashboard.component';
 import { CartComponent } from './cust-components/cart/cart.component';
 import { EmpDashComponent } from './components/emp-dash/emp-dash.component';
+import { RevenueGraphComponent } from './components/revenue-graph/revenue-graph.component';
 import { RegisterComponent } from './register/register.component';
 
 import { CommentsComponent } from './cust-components/comments/comments.component';
@@ -94,7 +95,7 @@ import { MinThreshComponent } from './min-thresh/min-thresh.component';
     CommentsComponent,
     MessageComponent,
     MinThreshComponent,
-
+    RevenueGraphComponent
   ],
   imports: [
     BrowserAnimationsModule,
