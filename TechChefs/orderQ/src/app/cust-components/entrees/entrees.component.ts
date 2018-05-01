@@ -11,7 +11,6 @@ import { Observable } from 'rxjs/Observable';
   styleUrls: ['./entrees.component.css'],
 })
 export class EntreesComponent implements OnInit {
-
   add(key: string): void {
     var num;
     if(this.cookieService.check(key) == true) {
@@ -78,8 +77,6 @@ export class EntreesComponent implements OnInit {
     this.confirmed();
     this.add(key);
   }
-
-
 
   constructor( private cookieService: CookieService, private db: AngularFireDatabase) { }
   ngOnInit(): void {

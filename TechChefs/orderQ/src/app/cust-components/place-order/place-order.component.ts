@@ -110,10 +110,6 @@ export class PlaceOrderComponent implements OnInit {
     for (let key in allCookies) {
       this.cart.push(key);
     }
-//    this.items = this.db.list('/menu').valueChanges().subscribe(items => {
-  //    console.log(items);
-    //}));
-
   }
 
 

@@ -19,7 +19,6 @@ export class OrdersComponent implements OnInit {
 	alert: string;
 	status: string;
 	ordObservable: Observable<any[]>;
-  status;
   type = 'Kitchen';
   message;
 
@@ -177,4 +176,3 @@ function checkTime(i) {
     }
     return i;
 }
-

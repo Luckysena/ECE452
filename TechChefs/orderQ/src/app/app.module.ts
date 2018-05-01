@@ -17,10 +17,6 @@ import { SearchorderComponent } from './components/searchorder/searchorder.compo
 import { InventoryComponent } from './components/inventory/inventory.component';
 import { ServerComponent } from './components/server/server.component';
 import { EntreesComponent } from './cust-components/entrees/entrees.component';
-<<<<<<< HEAD
-import { OrderService } from './cust-components/place-order/order.service';
-=======
->>>>>>> 3410d1b4a586cc627176c4fc84867c0f9a457ed1
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
