@@ -20,23 +20,14 @@ firebase_admin.initialize_app(cred)
 
 # Project ID is determined by the GCLOUD_PROJECT environment variable
 db = firestore.Client()
-#
-#
 # Firestore works!
 users_ref = db.collection(u'Inventory')
-
-
 docs = users_ref.get()
 dict =  {}
 inventoryList = {}
 for doc in docs:
-    #print('{}'.format( doc.to_dict()))
     dict.update(doc.to_dict())
     inventoryList.update({dict["Name"]:dict["min"]})
-
-
-
-
 
 fb = firebase.FirebaseApplication('https://restaurant-automation-79d80.firebaseio.com', None)
 #Get recipe
@@ -87,16 +78,9 @@ for time in orderList:
 
     updateInv.update({time:updateItem})
 
-                # for y in food:
-                #     for Ingredient in y:
-                #         print "hi"
 
-
-
-# sys.stdout = open('file.txt', 'w')
-# print updateInv
 #Update database
-sys.stdout = open('file.txt', 'w')
+sys.stdout = open('information.txt', 'w')
 for ingredient in inventoryList:
     toMean = {}
     for time in updateInv:
@@ -117,20 +101,11 @@ for ingredient in inventoryList:
         u'min': math.ceil(num)
     }, firestore.CreateIfMissingOption(True))
 
-
-
-
-
-
-    # print series
-
-
-
-
-
-
-# print series
-
+    notice = uf.get()
+    notice = notice.to_dict()
+    if (int(notice["min"])>int(notice["Quantity"])):
+        data = {u'message':ingredient}
+        db.collection(u'Alert').document(ingredient).set(data)
 
 
 

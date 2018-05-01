@@ -8,7 +8,11 @@ def Avg(series):
 	X = series.values
 
 	# print X
-	window = len(X)-1
+	if len(X)>1:
+		window = len(X)-1
+	else:
+		window = 1
+
 	history = [X[i] for i in range(window)]
 	test = [X[i] for i in range(window, len(X))]
 	predictions = list()
