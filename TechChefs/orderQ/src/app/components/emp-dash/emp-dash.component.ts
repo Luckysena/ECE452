@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFireDatabase , AngularFireList } from 'angularfire2/database';
 import { Observable } from 'rxjs/Observable';
 import { InvServiceService } from '../inventory/inv-service.service';
-import { AngularFirestore } from 'angularfire2/firestore';
+import { AngularFirestore, AngularFirestoreCollection} from 'angularfire2/firestore';
 import {DataSource} from '@angular/cdk/collections';
 import {MatTableDataSource} from '@angular/material';
 import{InventoryComponent} from '../inventory/inventory.component';
@@ -12,7 +12,9 @@ import{EmpDataSource} from '../employee/employee.component';
 import 'rxjs/add/operator/map';
  import { EmployeeService } from '../employee/employee.service';
 
-
+ interface Post{
+   message: string;
+ }
 
 @Component({
   selector: 'app-emp-dash',
@@ -20,6 +22,10 @@ import 'rxjs/add/operator/map';
   styleUrls: ['./emp-dash.component.css']
 })
 export class EmpDashComponent  {
+
+
+  postsCol: AngularFirestoreCollection<Post>;
+  posts: Observable<Post[]>
 
   InvDetails = {
     Name: '',
@@ -44,6 +50,10 @@ export class EmpDashComponent  {
 
   constructor(public inventory: InvServiceService, public employee: EmployeeService, private afs: AngularFirestore) {
 
+  }
+  ngOnInit(){
+    this.postsCol = this.afs.collection('Alert')
+    this.posts = this.postsCol.valueChanges();
   }
 
   addInv() {

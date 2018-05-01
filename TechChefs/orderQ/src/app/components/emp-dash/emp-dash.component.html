@@ -150,7 +150,11 @@
                   <!-- <div class="col-sm-6 col-centered"></div> -->
 
                  </mat-card>
-                 <mat-card style="background-color:#b30000;"class="col-sm-4 col-centered"><p style="color:White;">Alert Bar</p></mat-card>
+                 <mat-card style="background-color:#b30000;"class="col-sm-4 col-centered"><p style="color:White;">
+                   ALERTS
+                 </p>
+                 <ul  style="color:White"*ngFor="let post of posts | async">
+                  You are running out of {{post.message}}</ul></mat-card>
                 <mat-card class=" col-centered"><iframe src="https://calendar.google.com/calendar/embed?src=2ckm1rp9qddeebicir703cf2e0%40group.calendar.google.com&ctz=America%2FNew_York"
                 style="border: 0" width="800" height="400" frameborder="0" scrolling="no"></iframe></mat-card>
                     <!-- <div class="col-sm-1"></div> -->
