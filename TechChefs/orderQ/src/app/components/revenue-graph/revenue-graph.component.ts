@@ -49,7 +49,7 @@ export class RevenueGraphComponent implements OnInit {
   }
 
   formatData(orders) {
-    // uniqueify dates
+    // unique dates
     this.dates = Array.from(new Set(this.dates));
 
     // sort dates in ascending order
