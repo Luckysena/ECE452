@@ -1,3 +1,5 @@
+// Created by customer team - Mykola, Margaret, Aviv
+
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material';
 import { CartComponent } from '../cart/cart.component';

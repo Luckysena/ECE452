@@ -1,3 +1,5 @@
+// Created by customer team - Mykola, Margaret, Aviv
+
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material';
 import { CommentsComponent } from '../comments/comments.component';

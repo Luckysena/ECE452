@@ -1,3 +1,5 @@
+// Created by customer team - Mykola, Margaret, Aviv
+
 .indent{
   padding-left: 1.8em;
 }
@@ -16,7 +18,7 @@ p.desc-text{
   font-size: 20px;
   line-height: 35px;
   text-align: justify;
-  
+
 }
 
 p.entree-name{
@@ -55,7 +57,7 @@ p.category{
 
   min-height: 1000px;
   opacity: 0.5;
-  background: url("../../../assets/images/bkg.jpg"); 
+  background: url("../../../assets/images/bkg.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -68,7 +70,7 @@ body{
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  
+
 }
 
 .white{
@@ -83,6 +85,3 @@ body{
   background-color: #f2f2f2;
   opacity: 0.75;
 }
-
-
-

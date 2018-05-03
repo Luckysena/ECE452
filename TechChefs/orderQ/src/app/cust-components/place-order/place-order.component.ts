@@ -1,3 +1,5 @@
+// Created by customer team - Mykola, Margaret, Aviv
+
 import { Component, OnInit } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { AngularFireDatabase } from 'angularfire2/database';

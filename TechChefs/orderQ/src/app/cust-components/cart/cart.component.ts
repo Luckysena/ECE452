@@ -1,3 +1,5 @@
+// Created by customer team - Mykola, Margaret, Aviv
+
 import { Component, OnInit } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { AngularFireDatabase } from 'angularfire2/database';
@@ -13,7 +15,7 @@ import { DatePipe } from '@angular/common';
 })
 export class CartComponent implements OnInit {
 
-  
+
   cart;
   table;
   numGuests;
@@ -47,8 +49,8 @@ export class CartComponent implements OnInit {
     }
     this.cookieService.set(key, String(num));
   }
-  
-  
+
+
 
   ngOnInit(): void{
     this.cart = new Array<String>();

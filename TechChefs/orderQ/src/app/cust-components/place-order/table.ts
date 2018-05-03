@@ -1,3 +1,5 @@
+// Created by customer team - Mykola, Margaret, Aviv
+
 export class Table{
   status: string;
   table: string;

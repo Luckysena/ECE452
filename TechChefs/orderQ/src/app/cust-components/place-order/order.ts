@@ -1,3 +1,5 @@
+// Created by customer team - Mykola, Margaret, Aviv
+
 import { Item } from './item'
 export class Order {
   items: Item[];
